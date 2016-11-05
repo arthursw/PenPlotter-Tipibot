@@ -1,0 +1,55 @@
+#Polar Properties
+#Mon Mar 28 18:15:37 CEST 2016
+cnc.safeHeight=5.0
+com.baudrate=115200
+com.serialPort=1
+image.cropBottom=210
+image.cropLeft=130
+image.cropRight=330
+image.cropTop=10
+image.pixelSize=6
+image.scale=1.0
+machine.motors.maxSpeed=6970
+machine.motors.mmPerRev=96.0
+machine.zoomScale=1
+machine.offX=0
+machine.offY=0
+machine.penSize=0.5
+machine.motors.stepsPerRev=3200.0
+//200 steps x 16 microsteps
+servo.angle.down=1700
+servo.angle.up=1500
+servo.tempo.up=0
+servo.tempo.down=1000
+servo.dwell=250
+svg.UserScale=1.0
+svg.name=/Users/rick/GitHub/PolarGraph/PenPlotter/data/rick520.jpg
+svg.pixelsPerInch=72.0
+svg.shortestSegment=0.0
+// tablet 
+tablet.x = 0
+tablet.y = 0
+tablet.width = 1024
+tablet.height = 768
+tablet.margin.x=0
+tablet.margin.y=0
+
+machine.homepoint.y=1200
+//Hauteur de la feuille par rapport à l'axe des moteurs
+
+machine.homepoint.offsety=0
+//Hauteur de ton point d'origine par rapport au haut de la feuille
+
+machine.height=3960
+//Largeur du Tipibot en mm
+
+machine.width=5715
+//Largeur du Tipibot en mm
+
+paper.height=2489
+//Hauteur de ta feuille en mm
+
+paper.width=3988
+//Largeur de ta feuille en mm
+
+
