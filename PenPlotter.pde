@@ -94,7 +94,7 @@ JSONObject json;
     int tabletMarginY = 0;
     
     int speedValue = 20000;     // speed of motors controlled with speed slider
-
+    int delay = 0;              // delay between two segments/curves (0 = no delay)
 
     float stepsPerRev = 6400; // number of steps per rev includes microsteps
     float mmPerRev = 80;      // mm per rev
@@ -361,6 +361,9 @@ JSONObject json;
 
         speedValue = Integer.parseInt(props.getProperty("machine.motors.maxSpeed"));
         speedSlider.setValue(speedValue);
+        
+        delay = Integer.parseInt(props.getProperty("machine.delay"));
+        delaySlider.setValue(delay);
 
         pixelSize = Integer.parseInt(props.getProperty("image.pixelSize"));
         pixelSizeSlider.setValue(pixelSize);

@@ -11,6 +11,7 @@ image.pixelSize=6
 image.scale=1.0
 machine.motors.maxSpeed=6970
 machine.motors.mmPerRev=96.0
+machine.delay=0
 machine.zoomScale=1
 machine.offX=0
 machine.offY=0

@@ -109,6 +109,10 @@
         send("G3 X" + x + " Y" + y + " R" + r+"\n");
         updatePos(x, y);
     }
+    
+    public void sendPause(int delay) {
+        send("G4 P" + delay +"\n");
+    }
 
     public void sendSpeed(int speed) {
         send("G0 F" + speed + "\n");

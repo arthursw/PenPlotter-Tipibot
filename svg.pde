@@ -88,6 +88,11 @@
                     }
 
                     com.sendMoveG1(x2, y2);
+
+                    if(delay > 0) {
+                      com.sendPause(delay);
+                    }
+                    
                     svgLineIndex++;
                 } else {
                     svgPathIndex++;

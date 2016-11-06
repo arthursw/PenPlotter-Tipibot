@@ -18,6 +18,8 @@
     Slider offsetXSlider;
     Slider offsetYSlider;
     
+    Slider delaySlider;
+    
     Slider t1Slider;
     Slider t2Slider;
     Slider t3Slider;
@@ -231,6 +233,9 @@
         
         offsetXSlider = addSlider(leftMargin,posY += ySpace/2,"offsetX", "Offset X", 0.f, machineWidth, offXTopLeft);
         offsetYSlider = addSlider(leftMargin,posY += ySpace/2,"offsetY", "Offset Y", 0.f, machineHeight, offY);
+        
+        delaySlider = addSlider(leftMargin,posY += ySpace/2,"delayChanged", "Delay", 0.f, 1000.f, delay);
+        
         
         pixelSizeSlider = addSlider(imageX+20,imageY+imageHeight+60,"pixelSlider", "PIXEL SIZE", 2, 16, pixelSize);
 
@@ -597,6 +602,11 @@
     public void offsetY(int newOffY)
     {
         offY = newOffY;
+    }
+    
+    public void delayChanged(int newDelay)
+    {
+        delay = newDelay;
     }
 
     public void jog(boolean jog, int x, int y)
