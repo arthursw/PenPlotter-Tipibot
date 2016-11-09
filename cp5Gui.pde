@@ -231,8 +231,8 @@
         servoUpTempoSlider = addSlider(leftMargin,posY += ySpace/2,"servoUpTempo", "S. up tmp", 0.f, 3000.f, servoUpTempo);
         servoDownTempoSlider = addSlider(leftMargin,posY += ySpace/2,"servoDownTempo", "S. down tmp", 0.f, 3000.f, servoDownTempo);
         
-        offsetXSlider = addSlider(leftMargin,posY += ySpace/2,"offsetX", "Offset X", 0.f, machineWidth, offXTopLeft);
-        offsetYSlider = addSlider(leftMargin,posY += ySpace/2,"offsetY", "Offset Y", 0.f, machineHeight, offY);
+        offsetXSlider = addSlider(leftMargin,posY += ySpace/2,"offsetX", "Offset X", 0.f, paperWidth * 25.4f, offXTopLeft);
+        offsetYSlider = addSlider(leftMargin,posY += ySpace/2,"offsetY", "Offset Y", 0.f, paperHeight * 25.4f, offY);
         
         delaySlider = addSlider(leftMargin,posY += ySpace/2,"delayChanged", "Delay", 0.f, 1000.f, delay);
         
@@ -595,12 +595,19 @@
     
     public void offsetX(int newOffX)
     {
+        if(offXTopLeft < 0 && newOffX == 0 || offXTopLeft > paperWidth * 25.4f && Math.abs(newOffX - paperWidth * 25.4f) < 0.1f  ) {
+          return;
+        }
         offXTopLeft = newOffX;
         offX = - int(paperWidth * 25.4f / 2.f) + offXTopLeft;
     }
     
     public void offsetY(int newOffY)
     {
+        if(offY < 0 && newOffY == 0 || offY > paperHeight * 25.4f && Math.abs(newOffY - paperHeight * 25.4f) < 0.1f  ) {
+          return;
+        }
+        
         offY = newOffY;
     }
     

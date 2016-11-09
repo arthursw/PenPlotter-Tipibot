@@ -52,6 +52,7 @@
 
             if (press) {
 
+                println("update: press: " + id);
                 if (followsX)
                 {
                     float dx = (unScaleX(mouseX) -x)/trackSpeed;
@@ -76,7 +77,9 @@
         }
 
         public void pressEvent() {
-            if (over && mousePressed || locked) {
+            println("pressEvent: " + id);
+            
+            if (over && mousePressed && (mouseButton == LEFT) || locked) {
                 press = true;
                 locked = true;
             } else {
@@ -105,9 +108,9 @@
                 if (x > homeX)
                     offx = -40;
                 if(id.equals("pWidth"))
-                  text("Width "+nf((x-homeX)*2/25.4,0,1), boxx, boxy-10);
+                  text("Width "+nf((x-homeX)*2,0,1), boxx, boxy-10);
                 else if(id.equals("pHeight"))
-                  text("Height "+nf((y-homeY)/25.4,0,1), boxx+offx, boxy);
+                  text("Height "+nf((y-homeY),0,1), boxx+offx, boxy);
                   
                 else if (followsX && followsY)
                     text("X "+(int)x+" Y "+(int)y, boxx-30, boxy+30);

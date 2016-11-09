@@ -179,8 +179,8 @@ public void saveProperties() {
     props.setProperty("servo.dwell", ""+servoDwell);
     props.setProperty("servo.upValue", ""+servoUpValue);
     props.setProperty("servo.downValue", ""+servoDownValue);
-    props.setProperty("paper.width", ""+nf(paperWidth, 0, 1));
-    props.setProperty("paper.height", ""+nf(paperHeight, 0, 1));
+    props.setProperty("paper.width", ""+nf(paperWidth * 24.5f, 0, 1));
+    props.setProperty("paper.height", ""+nf(paperHeight * 24.5f, 0, 1));
 
 
     String fileToSave = sketchPath(propertiesFilename);

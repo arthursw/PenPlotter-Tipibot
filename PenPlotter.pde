@@ -411,8 +411,9 @@ JSONObject json;
         {
             offXTopLeft = oldOffX + (int)((mouseX - startX)/zoomScale);
             offY = oldOffY + (int)((mouseY - startY)/zoomScale);
-            offsetXSlider.setValue(offXTopLeft);
-            offsetYSlider.setValue(offY);
+            
+            offsetXSlider.setValue(Math.min(Math.max(0, offXTopLeft), paperWidth * 25.4f));
+            offsetYSlider.setValue(Math.min(Math.max(0, offY), paperHeight * 25.4f));
             
             offX = - int(paperWidth * 25.4f / 2.f) + offXTopLeft;
         }
@@ -456,7 +457,7 @@ JSONObject json;
         {
             setPenPositionButton.setCaptionLabel("Set pen position");
             settingPenPosition = false;
-            com.sendSetPositionG92((mouseX-scaleX(0))/zoomScale, (mouseY-scaleY(0))/zoomScale);
+            com.sendSetPositionG92(Math.round((mouseX-scaleX(0))/zoomScale), Math.round((mouseY-scaleY(0))/zoomScale));
         }
         if(setPenPositionButtonJustPressed)
         {
