@@ -52,7 +52,6 @@
 
             if (press) {
 
-                println("update: press: " + id);
                 if (followsX)
                 {
                     float dx = (unScaleX(mouseX) -x)/trackSpeed;
@@ -77,7 +76,6 @@
         }
 
         public void pressEvent() {
-            println("pressEvent: " + id);
             
             if (over && mousePressed && (mouseButton == LEFT) || locked) {
                 press = true;
