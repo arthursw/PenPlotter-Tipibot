@@ -19,8 +19,8 @@ machine.offY=388
 machine.penSize=0.5
 machine.motors.stepsPerRev=3200.0
 //200 steps x 16 microsteps
-servo.angle.down=1700
-servo.angle.up=1500
+servo.angle.down=900
+servo.angle.up=1478
 servo.tempo.up=150
 servo.tempo.down=150
 servo.dwell=250
