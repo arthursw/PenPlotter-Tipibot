@@ -9,20 +9,19 @@ image.cropRight=330
 image.cropTop=10
 image.pixelSize=6
 image.scale=1.0
-machine.motors.maxSpeed=3780
+machine.motors.maxSpeed=6970
 machine.motors.mmPerRev=96.0
-
-machine.delay=14
-machine.zoomScale=0.87
+machine.delay=0
+machine.zoomScale=1
 machine.offX=0
-machine.offY=388
+machine.offY=0
 machine.penSize=0.5
 machine.motors.stepsPerRev=3200.0
 //200 steps x 16 microsteps
 servo.angle.down=1700
 servo.angle.up=1500
-servo.tempo.up=150
-servo.tempo.down=150
+servo.tempo.up=0
+servo.tempo.down=1000
 servo.dwell=250
 svg.UserScale=1.0
 svg.name=/Users/rick/GitHub/PolarGraph/PenPlotter/data/rick520.jpg
@@ -36,22 +35,22 @@ tablet.height = 768
 tablet.margin.x=0
 tablet.margin.y=0
 
-machine.homepoint.y=320
+machine.homepoint.y=1200
 //Hauteur de la feuille par rapport à l'axe des moteurs
 
-machine.homepoint.offsety=800
+machine.homepoint.offsety=0
 //Hauteur de ton point d'origine par rapport au haut de la feuille
 
-machine.height=2000
+machine.height=3960
 //Largeur du Tipibot en mm
 
-machine.width=1645
+machine.width=5715
 //Largeur du Tipibot en mm
 
-paper.height=600
+paper.height=2489
 //Hauteur de ta feuille en mm
 
-paper.width=800
+paper.width=3988
 //Largeur de ta feuille en mm
 
 

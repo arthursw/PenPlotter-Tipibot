@@ -136,15 +136,15 @@
     }
 
     public void sendPenUp() {
-        send("G4 P0\n");
-        send("M340 P3 S1500\n");
+        send("G4 P" + servoUpTempo + "\n");
+        send("M340 P3 S" + servoUpValue + "\n");
         send("G4 P0\n");
         showPenDown();
     }
 
     public void sendPenDown() {
-        send("G4 P1000\n");
-        send("M340 P3 S1700\n");
+        send("G4 P" + servoDownTempo + "\n");
+        send("M340 P3 S" + servoDownValue + "\n");
         send("G4 P0\n");
         showPenUp();
     }

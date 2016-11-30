@@ -505,6 +505,17 @@ public void keyPressed() {
         println("control");
         initLogging();
     }
+
+    if (key == 't') {
+        tabletMode = !tabletMode;
+        println("Set tabletMode to: " + tabletMode);
+        if(tabletMode) {
+            tabletModeButton.setCaptionLabel("Normal mode");
+        } else {
+            tabletModeButton.setCaptionLabel("Tablet mode");
+        }
+        
+    }
 }
 void initLogging() {
     try {
@@ -903,9 +914,6 @@ public void draw() {
 
 
     if (tabletMode) {
-        println("mp: " + mouseX + ", " + mouseY);
-
-
 
         float pWidth = paperWidth * 25.4f;
         float pHeight = paperHeight * 25.4f;
