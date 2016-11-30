@@ -20,6 +20,9 @@
     
     Slider delaySlider;
     
+    Slider symmetrySlider;
+    Slider rotationSlider;
+
     Slider t1Slider;
     Slider t2Slider;
     Slider t3Slider;
@@ -89,7 +92,6 @@
         l.getStyle().marginLeft = -(int)textWidth(label);
         return s;
     }
-
 
     class myView implements ControllerView<Button> {
 
@@ -204,7 +206,7 @@
         loadButton = addButton("load", "Load", leftMargin, posY+=ySpace);
         plotButton = addButton("plot", "Plot", leftMargin, posY+=ySpace);
         setPenPositionButton = addButton("setPenPosition", "Set pen position", leftMargin, posY+=ySpace);
-  //      tabletModeButton = addButton("tabletMode", "Tablet mode", leftMargin, posY+=ySpace);
+        tabletModeButton = addButton("tabletMode", "Tablet mode", leftMargin, posY+=ySpace);
         
         addButton("dorotate", "Rotate", leftMargin, posY+=ySpace);
         addButton("mirrorX","Flip X",leftMargin,posY+=ySpace);
@@ -236,6 +238,10 @@
         
         delaySlider = addSlider(leftMargin,posY += ySpace/2,"delayChanged", "Delay", 0.f, 1000.f, delay);
         
+        symmetrySlider = addSlider(leftMargin,posY += ySpace/2, "symmetryChanged", "Symmetry", 0.f, 7.f, 0.f);
+        rotationSlider = addSlider(leftMargin,posY += ySpace/2, "rotationChanged", "Rotation", 0.f, 36.f, 0.f);
+
+
         
         pixelSizeSlider = addSlider(imageX+20,imageY+imageHeight+60,"pixelSlider", "PIXEL SIZE", 2, 16, pixelSize);
 
@@ -247,6 +253,7 @@
         t3Slider = addSlider(imageX+20,imageY+imageHeight+60+3*ySpace/2,"t3", "T3 |", 0, 255, 64).onRelease(thresholdrelease).onReleaseOutside(thresholdrelease);
         t4Slider = addSlider(imageX+20,imageY+imageHeight+60+4*ySpace/2,"t4", "T4 -", 0, 255, 32).onRelease(thresholdrelease).onReleaseOutside(thresholdrelease);
         stipplePlot.init();
+
 
         hideImageControls();
         showPenDown();
@@ -614,6 +621,14 @@
     public void delayChanged(int newDelay)
     {
         delay = newDelay;
+    }
+
+    public void symmetryChanged(float newSymmetry) {
+        symmetry = (int)newSymmetry;
+    }
+
+    public void rotationChanged(float newRotation) {
+        rotation = (int)newRotation;
     }
 
     public void jog(boolean jog, int x, int y)
