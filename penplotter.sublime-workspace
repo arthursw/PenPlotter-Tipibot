@@ -4,6 +4,178 @@
 		"selected_items":
 		[
 			[
+				"Cam",
+				"CameraPoints\tlet"
+			],
+			[
+				"Add",
+				"AddV\tmethod"
+			],
+			[
+				"C",
+				"CrossProduct\tmethod"
+			],
+			[
+				"Selection",
+				"SelectionFrustum\tlet"
+			],
+			[
+				"In",
+				"InverseTransform\tmethod"
+			],
+			[
+				"T",
+				"Transform\tmethod"
+			],
+			[
+				"Trans",
+				"Transform\tparameter"
+			],
+			[
+				"GetActorsOf",
+				"GetSelectedActorsOfType\tmethod"
+			],
+			[
+				"Get",
+				"GetWorld\tfunction"
+			],
+			[
+				"Ou",
+				"OutFarPlane\tproperty"
+			],
+			[
+				"To",
+				"ToUEPlane\tmethod"
+			],
+			[
+				"O",
+				"OutCameraPosition\tproperty"
+			],
+			[
+				"Came",
+				"CameraPlanes\tlet"
+			],
+			[
+				"CameraP",
+				"CameraPlanes\tlet"
+			],
+			[
+				"P",
+				"ParallelAndOverlapping\tmethod"
+			],
+			[
+				"Crea",
+				"CreateFromThreePoints\tmethod"
+			],
+			[
+				"No",
+				"Normal\tlet"
+			],
+			[
+				"Camer",
+				"CameraPlanes\tlet"
+			],
+			[
+				"S",
+				"SubtractV\tmethod"
+			],
+			[
+				"Draw",
+				"DrawDebugLine\tmethod"
+			],
+			[
+				"A",
+				"AddV\tmethod"
+			],
+			[
+				"KismetS",
+				"KismetSystemLibrary\tclass"
+			],
+			[
+				"KismetM",
+				"KismetMathLibrary\tclass"
+			],
+			[
+				"IsN",
+				"IsNearlyZero\tfunction"
+			],
+			[
+				"Squ",
+				"LengthSquared\tmethod"
+			],
+			[
+				"Vector",
+				"Vector2D\tclass"
+			],
+			[
+				"Is",
+				"IsNearlyZero\tfunction"
+			],
+			[
+				"GetCam",
+				"GetCameraFrustom\tmethod"
+			],
+			[
+				"GetC",
+				"GetCameraDirection\tmethod"
+			],
+			[
+				"Sele",
+				"SelectionFrustum\tlet"
+			],
+			[
+				"Face",
+				"FaceOctree\tproperty"
+			],
+			[
+				"Tra",
+				"Transform\tclass"
+			],
+			[
+				"Res",
+				"Result\tlet"
+			],
+			[
+				"LineTraceByChannel",
+				"MultiLineTraceByChannel\tmethod"
+			],
+			[
+				"tur",
+				"true\tkeyword"
+			],
+			[
+				"Result",
+				"Results\tlet"
+			],
+			[
+				"Gizmo",
+				"GizmoHelper\tproperty"
+			],
+			[
+				"ID",
+				"IsDestroyed\tmethod"
+			],
+			[
+				"Plu",
+				"Plugins\tproperty"
+			],
+			[
+				"Pro",
+				"ProBuilder"
+			],
+			[
+				"Com",
+				"Commands\tproperty"
+			],
+			[
+				"Comm",
+				"CommandInfos\tproperty"
+			],
+			[
+				"JavascriptEdi",
+				"JavascriptEditorTab\tclass"
+			],
+			[
 				"Ac",
 				"ActivatePlugin\tmethod"
 			],
@@ -22,10 +194,6 @@
 			[
 				"CSGGro",
 				"CSGgroup\tlet"
-			],
-			[
-				"Sele",
-				"SelectedEAs\tlet"
 			],
 			[
 				"bM",
@@ -108,10 +276,6 @@
 				"RemoveGroup\tfunction"
 			],
 			[
-				"Crea",
-				"CreateCSGGroup\tfunction"
-			],
-			[
 				"GUIE",
 				"GUIElems\tlet"
 			],
@@ -122,14 +286,6 @@
 			[
 				"Compute",
 				"ComputeCSG\tfunction"
-			],
-			[
-				"Is",
-				"IsValid\tmethod"
-			],
-			[
-				"Get",
-				"GetFirstVertex\tmethod"
 			],
 			[
 				"Mesh",
@@ -196,10 +352,6 @@
 				"desc\tlet"
 			],
 			[
-				"Plu",
-				"PluginName\tlet"
-			],
-			[
 				"Dow",
 				"DownloadingPlugins\tproperty"
 			],
@@ -208,24 +360,12 @@
 				"PluginsConfig\tproperty"
 			],
 			[
-				"O",
-				"OffsetElems\tproperty"
-			],
-			[
 				"Det",
 				"DestroyComponent\tmethod"
 			],
 			[
-				"Com",
-				"Commands\tproperty"
-			],
-			[
 				"De",
 				"DestroyActor\tmethod"
-			],
-			[
-				"A",
-				"Assets\tproperty"
 			],
 			[
 				"Mes",
@@ -296,16 +436,8 @@
 				"GetSelectedEditableActors\tmethod"
 			],
 			[
-				"Draw",
-				"DrawEditableActorHighlights\tmethod"
-			],
-			[
 				"Dra",
 				"DrawEditableActorHighlights\tmethod"
-			],
-			[
-				"P",
-				"PDI\tparameter"
 			],
 			[
 				"inst",
@@ -352,10 +484,6 @@
 				"SubtractV\tmethod"
 			],
 			[
-				"GetC",
-				"GetCornerIndexFromNormal\tmethod"
-			],
-			[
 				"cons",
 				"constructor\tkeyword"
 			],
@@ -372,10 +500,6 @@
 				"Vertex\talias"
 			],
 			[
-				"To",
-				"ToPolylines\tmethod"
-			],
-			[
 				"ProBuilder",
 				"ProBuilderPDI\tclass"
 			],
@@ -390,152 +514,11 @@
 			[
 				"ESc",
 				"ESceneDepthPriorityGroup\tconst"
-			],
-			[
-				"Edi",
-				"EditableActor"
-			],
-			[
-				"V",
-				"Vertices"
-			],
-			[
-				"PBMC",
-				"PBMCJS"
-			],
-			[
-				"Ed",
-				"Edges"
-			],
-			[
-				"GetV",
-				"GetVertices"
-			],
-			[
-				"In",
-				"Index"
-			],
-			[
-				"Out",
-				"OutVertices"
-			],
-			[
-				"Stati",
-				"StaticMeshComponent"
-			],
-			[
-				"Stat",
-				"StaticMeshA"
-			],
-			[
-				"Static",
-				"StaticMeshActor"
-			],
-			[
-				"Mat",
-				"Material"
-			],
-			[
-				"OutMa",
-				"OutMaterials"
-			],
-			[
-				"Smo",
-				"SmoothGroupWaterShed"
-			],
-			[
-				"l",
-				"length"
-			],
-			[
-				"Upd",
-				"UpdateFaceSmoothGroupsFromEdgeSmooth"
-			],
-			[
-				"Sm",
-				"Smooth"
-			],
-			[
-				"Upda",
-				"UpdateSmoothFromFaceGroups"
-			],
-			[
-				"Pro",
-				"Property"
-			],
-			[
-				"bAll",
-				"bAllFacesHaveSameSmoothGroup"
-			],
-			[
-				"Error",
-				"ErrorMessage"
-			],
-			[
-				"Er",
-				"ErrorMessages"
-			],
-			[
-				"Erro",
-				"ErrorMessage"
-			],
-			[
-				"Messga",
-				"MessagesToNotify"
-			],
-			[
-				"Update",
-				"UpdateViewport\tproperty"
-			],
-			[
-				"UV",
-				"UVEditor\tproperty"
-			],
-			[
-				"Vect",
-				"Vector\tclass"
-			],
-			[
-				"Refere",
-				"ReferenceU\tlet"
-			],
-			[
-				"Con",
-				"ContainsPoint\tmethod"
-			],
-			[
-				"Sq",
-				"LengthSquared\tmethod"
-			],
-			[
-				"V1",
-				"V1Distance\tlet"
-			],
-			[
-				"EdgeL",
-				"EdgeLoops\tlet"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "penplotter.sublime-project",
-			"settings":
-			{
-				"buffer_size": 99,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Hatch.pde",
-			"settings":
-			{
-				"buffer_size": 10256,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -545,9 +528,13 @@
 	"command_palette":
 	{
 		"height": 87.0,
-		"last_filter": "install",
+		"last_filter": "instal",
 		"selected_items":
 		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -581,7 +568,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 485.0
+		"width": 449.0
 	},
 	"console":
 	{
@@ -600,12 +587,84 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/Users/Arthur/Projects/IDLV/PenPlotter-pasteur/penplotter"
-	],
 	"file_history":
 	[
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/< TypeError: this.PluginManager.Plugins.get(...).G",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/extension-ProBuilder.js",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/ExtrudeCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/RectangleCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/ProBuilder.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ProBuilderTypings/ProBuilder.d.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Utils.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/ProceduralMeshComponent.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Vertex.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/AtomicCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/LineCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/AutoIntersections/AutoIntersections.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/EdgeActions/EdgeActions.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/Extrude/Extrude.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/SelectionActions/SelectionActions.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/FaceActions/FaceActions.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/Offset/OffsetCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Edge.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Mesh.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Face.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/EditableMeshComponent.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/ShapeCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVEditor.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVGUI.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PBGUI.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVEditorInterfaces.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PluginManager/PluginManagerGUI.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PluginManager/PluginManager.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/EditableActor.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/GizmoHelper.ts",
+		"/Users/Arthur/.hammerspoon/init.lua",
+		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-2wdo49/arthurmasson.conf",
+		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-u1d7p0/000-default.conf",
+		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-up7j6k/arthurmasson.conf",
+		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-g0wb8q/wp-config.php",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/Unreal.js-core/install-v8-libs.sh",
+		"/Users/Arthur/Documents/.mdp.txt",
+		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-yd6r29/wp-config.php",
+		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-zdwo8z/wp-config.php",
+		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-dfbp23/wp-config.php",
+		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-n8b3hg/wp-config.php",
+		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-izwhrl/wp-config.php",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Content/Scripts/extension-ProBuilder.js",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/CSG/CSG.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/ObjectActions/ObjectActions.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/Offset/OffsetGUI.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/Snap/Snap.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UV.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVAtomicCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVFace.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVInterfaces.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVProcessing.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVVertex.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVAtomicCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVEditableMeshComponent.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVEditorGUI.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVEditorProcessing.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVGizmo.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVWeldCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/VertexActions/VertexActions.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Readme.md",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Content/Scripts/CopyScripts.js",
+		"/Users/Arthur/Projects/Unreal Projects/untitled",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/Readme.md",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PluginManager/PluginWindow.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Settings.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Animator.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Octree.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/Command.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/CommandManager.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/DirectActionCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/SelectCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/TransformCommand.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/GUI/Window.ts",
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/LineBatcher.ts",
+		"/Users/Arthur/Projects/Unreal Projects/untitled.json",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/plugins-config.json",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Content/Scripts/plugins.json",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Content/Scripts/plugins-config.json",
@@ -613,53 +672,7 @@
 		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-pqvflt/httpd.conf",
 		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-febpul/wp-config.php",
 		"/var/folders/sz/f97g80v149b689p1jvnwybgr0000gn/T/rsub-dhty6k/wp-config.php",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/EdgeActions/EdgeActions.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/FaceActions/FaceActions.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVEditor.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVEditorProcessing.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/Offset/OffsetCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/AutoIntersections/AutoIntersections.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Vertex.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Edge.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/ProBuilder.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/TransformCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PluginManager/PluginManager.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/SelectCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PluginManager/PluginManagerGUI.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Animator.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/extension-ProBuilder.js",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/Command.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/AtomicCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/CommandManager.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PBGUI.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVEditorGUI.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/SelectionActions/SelectionActions.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/Snap/Snap.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UV.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/ShapeCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/RectangleCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Octree.ts",
 		"/Users/Arthur/Desktop/octreeI.cpp",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Utils.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/EditableActor.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/ProceduralMeshComponent.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/EditableMeshComponent.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/GizmoHelper.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Mesh.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Face.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ProBuilderTypings/ProBuilder.d.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/LineCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/DirectActionCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVGUI.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/ObjectActions/ObjectActions.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/Offset/OffsetGUI.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVEditorInterfaces.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVProcessing.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Settings.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVFace.ts",
-		"/Users/Arthur/Documents/.mdp.txt",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/GUI/Window.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/CSG/CSG.ts",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/CSG/PBCSG.ts",
 		"/Users/Arthur/Projects/Tiny/PassoirePassword/script.js",
 		"/Users/Arthur/Library/Application Support/Epic/UnrealEngine/4.13/Saved/ProBuilder/settings.json",
@@ -669,33 +682,23 @@
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PluginManager/typings/jquery.d.ts",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/SelectionActions/README.md",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/AutoIntersections/Readme.md",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/ExtrudeCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVAtomicCommand.ts",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/PluginManager/plugins.json",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PluginManager/PluginWindow.ts",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/FaceActions/README.md",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/AutoIntersections/AutoIntersectionsProcessing.ts",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/CheckGitRepos.js",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVGizmo.ts",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/editor-maker.js",
 		"/Users/Arthur/Desktop/bitbucketError.html",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVInterfaces.ts",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/.gitignore",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/tsconfig.json",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/CopyScripts.js",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/package.json",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/ObjectActions/ObjetActions.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVEditableMeshComponent.ts",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/Offset/Offset.ts",
 		"/Users/Arthur/Projects/IDLV/Generators/City.pde",
 		"/Users/Arthur/Projects/IDLV/Generators/Motif.js",
 		"/Users/Arthur/Projects/IDLV/Generators/Generation.pde",
 		"/Users/Arthur/Projects/IDLV/Generators/GenerationBasic.pde",
 		"/Users/Arthur/Projects/IDLV/Generators/GenerationTrails.pde",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVVertex.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/VertexActions/VertexActions.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVAtomicCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UVEditor/UVWeldCommand.ts",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ProBuilderTypings/ue.d.ts",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ProBuilderTypings/_part_0_ue.d.ts",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ProBuilderTypings/_part_1_ue.d.ts",
@@ -713,27 +716,7 @@
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Base64.ts",
 		"/Users/Arthur/.nvm/versions/node/v6.3.0/bin/npm",
 		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PluginManager/Plugins.config",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PluginManager/plugins.json",
-		"/Users/Arthur/Projects/Unreal Projects/ProBuilderBckp/bckp.ts",
-		"/Users/Arthur/Projects/IDLV/Totem.js",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Commands/WeldUVCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVProcesing.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVAtomicCommands.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UV.js",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVEditableMeshComponent.js",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVGUI.js",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVVertex.js",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVFaceUV.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/UVFace.js",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/AtomicCommandsUV.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/AtomicCommands.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/Extrude/Extrude.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/WeldUVCommand.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/VertexUV.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/FaceUV.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/Plugins/UV/EditableMeshComponentUV.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/LineBatcher.ts",
-		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/.gitignore"
+		"/Users/Arthur/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ts/PluginManager/plugins.json"
 	],
 	"find":
 	{
@@ -798,134 +781,134 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"OpenCSG",
-			"OCSG",
-			"PluginList",
-			"AddReferencedObjects",
-			"PreviousWorldTransform",
-			"EqualTransform",
-			"material",
+			"constru",
+			"SkyLight",
+			"Remove",
+			"CameraDirection",
+			"EditableActor",
+			"Point",
+			"QueryIntersect",
+			"SkyLight",
+			".OutActors",
+			"GetSelectedActorsOfType",
+			"SkyLight",
 			"ProBuilder",
-			"Deselect Gizmo: from uveditor",
-			"Label",
-			"PreviousWorldTransform",
-			"global.",
-			"World",
-			"global",
-			"Root",
-			"global.ProBuilder",
-			"ProBuilder: ProBuilder",
-			"ProBuilder: ProBuilder,",
-			"import { ProBuilder",
+			"CamDi",
+			"Frustum",
+			"InitializeS",
+			"CreateFromUEPlane",
+			"Viewport.Set",
+			"GetCam",
 			"ProBuilder",
-			"ProBuilderClass",
-			"ProBuilder",
-			"ProBuilderClass",
-			"GizmoHelper",
-			"LineBatcherJS",
-			"ctor()",
-			"=== ",
-			"==== ",
-			" ===",
-			" ====",
-			"=== ",
-			" ===",
-			"CopyScripts",
-			"PluginsConfig[",
-			"Activated",
-			"PluginConfigPath",
-			"DocumentRoot",
-			"bNoEditableActors",
-			"GetCSGGroup",
-			"RemoveEAFromGroup",
-			"AddMeshToGroup",
-			"RemoveEAFromGroup",
-			"AddMeshToGroup",
-			"GetCSGGroup",
-			"CurrentGroup",
-			"CreateCSGGroupElem",
-			"UpdateGUI",
-			"MeshListElem",
-			"Operations",
-			"GroupOperations",
-			"Operations",
-			"CreateOperationList",
-			"CreateMeshGUI",
-			"AddMeshToGroup",
-			"MeshGroupToMeshes.FindOrAdd",
-			"MeshGroupToMeshes.FindOrAdd(Value, Utils.TArray).Add(EA)",
-			"CreateOperationList",
-			"EA",
-			"CreateOperationList",
-			"CreateMeshGUI",
-			"CreateOperationList",
-			"MeshToOperation",
-			"Delete",
-			"CSGGroupChanged",
-			"ComputeCSG",
-			"OldGroups",
-			"CSG\"",
-			"CSG'",
-			"ComputeCSG",
-			"CSGGroupSpinBox",
-			"CSGGroupSpinBoxElem",
-			"CreateSpinBox",
-			"SmoothGroupSpinBoxElem",
-			"FaceGroupSpinBoxElem",
-			"CreateSpinBox",
-			"Id < 0",
-			"Id <= 0",
-			"E.Id <= 0",
-			"E.Id <: 0",
-			"E.Id < 0",
-			"Append(",
-			"CreateMeshGUI",
-			"CreateOperationList",
-			"Visibili",
-			".Deselect(",
-			".Select(",
-			"over",
-			"Hover",
-			"same",
-			"Callback",
-			"Clone",
+			"    ProBuilder: any\n    ProBuilder: any\n$",
+			"    ProBuilder: any\n$",
+			"$",
+			"Hidden",
+			"VertexHi",
+			"QueryIntersectsFrustum",
+			"Plane",
+			"Utils.Plane",
+			"Plane",
+			"GetCameraFrustum",
+			"GetCameraFrustom",
+			" Selection changed and not shape tool",
+			"UpdateSelection(",
+			"UpdateSelection()",
+			"UpdateSelection(",
+			"UpdateSelection()",
+			"GizmoHelper.Set",
+			"ShapeGUIParentElem.RemoveChildAt",
+			"RemoveChildAt",
+			"Remove",
+			"UpdateSelection",
+			"SelectRing",
+			"SmoothGroup",
+			"which are not coplanar",
+			"Could not merge face which are not coplanar",
+			"PointsOnMesh",
+			"ActorUnderCursor",
+			"GetHitResultUnderCursor",
+			"GetHitResultAtScreenPosition",
+			"LineTraceByChannel",
+			"VertexIs",
+			"IsShapeTool(global.ProBuilder.Tool",
+			".ObjectsToRecycle.",
+			"this.ObjectsToRecycle",
+			"ObjectsToRe",
+			"ObjectsToRecycle",
+			"CopiedEditableActors",
+			"EditorEngine",
 			"DestroyActor",
-			"Destro",
-			"Utils.CallNextFrame",
-			"CreateCSGGroup",
-			"CSGGroupChanged",
-			"UpdateGUI",
-			"Action",
-			"CSGGroupChangedByGUI",
-			"CSGGroupChanged",
-			"UpdateGUI",
-			"CreateMeshGUI",
-			"NGroups",
-			"CurrentGroup",
-			"CSGGroupChanged",
-			"CSGGroupSpinBoxElem",
-			"ActionEvent.emit",
-			"TransformSelectedElements",
-			"CreateCSGGroupElem",
-			"GUIElems",
-			"CreateCSGGroupElem",
-			"UpdateGUI",
-			"MeshGroupToCompuedMesh",
-			"Visibility:",
-			"MessageEvent.",
-			"vent.emit(",
-			"MessageEvent",
-			"Event",
-			"GUIEvent",
-			"Event",
-			"GenerateEditableMesh",
-			"ComboB",
-			"$execEditor",
-			"$exe",
-			"OpenCSG",
-			".Vector",
-			"require('",
-			"Com"
+			"Flush",
+			"UVEditor",
+			"GetWorld",
+			"this.PluginManager.Plugins.",
+			"global.PBOutputDevice",
+			"PBOutputDevice",
+			"PreviousSelectedElements",
+			"DeselectEditableActors",
+			"DeselectAllEditableActors",
+			"SetTool",
+			"LoadPluginConfig",
+			"GUIElem link ok",
+			"UVAuto",
+			"CreateTexturePlane",
+			"InitializeViewport",
+			"Viewport",
+			"UVEditorGUI",
+			"GUI",
+			"InitializeUVEditorGUI",
+			"InitializeUVsGUI",
+			"UVElems.UVElem",
+			"UVElem",
+			"GUI",
+			"GUI =",
+			"GUI",
+			".GUI",
+			"this.GUI",
+			"UV.GUI",
+			"GUI",
+			".UVElems.SettingsElem",
+			"InitializeUVEditorGUI",
+			"InitializeUVSettingsGUI",
+			"function",
+			"this.",
+			"Tabs",
+			"cg",
+			"Create",
+			"FaceToRecycle.Initialize",
+			"Edge(",
+			"new Edge(",
+			"new Face(",
+			"new Vertex(",
+			"new Vertex",
+			"UVParameters",
+			"this.UVParameters",
+			"EdgeToRecycle",
+			"FacesToRecycle",
+			"EdgesToRecycle",
+			"new Vertex",
+			"InputBindingManager",
+			"UVAuto",
+			"CommandNameToIndex",
+			"AddToolBarButton",
+			"JavascriptMenuLibrary.AddToolBarButton",
+			"Add",
+			"PBEditor",
+			"World",
+			"CommandNameToIndex",
+			"CommandNameToIndex\\[\"(\\w+)\"\\]",
+			"CommandNameToIndex[\"(\\W+)\"]",
+			"CommandNameToIndex",
+			"CommandInfos",
+			"AddToolBarButton",
+			"this.Commands.CommandInfos",
+			"this.commands",
+			"this.Commands",
+			"commands",
+			"MakeCommands",
+			"this.Commands.CommandInfos",
+			"this.Commands"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -933,6 +916,24 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Utils.PBPlane",
+			"Edge.Create(",
+			"Face.Create(",
+			"Vertex.Create(",
+			"FaceToRecycle",
+			"FacesToRecycle",
+			"CommandNameToIndex.get(\"$1\")",
+			"this.Commands",
+			"this.commands",
+			"this.Tab",
+			"this.Tabs",
+			"Context",
+			"this.CommandList",
+			"this.Context",
+			"this.Commands",
+			"ProBuilder",
+			"global.Root.GetEngine()",
+			"Utils.GetWorld()",
 			"ProBuilder: AProBuilder",
 			"ProBuilder: AProBuilder,",
 			"import { AProBuilder",
@@ -1042,25 +1043,7 @@
 			"NormalWorld",
 			"var",
 			"vr",
-			"OffsetElems",
-			"ts/",
-			"",
-			"../../",
-			"../..",
-			"IsKeyDown",
-			"F",
-			"ParallelFaces",
-			"CreateHolesElem",
-			"CreateHoleElem",
-			"IntersectElem",
-			"); cylinder(",
-			"); cube(",
-			"EA",
-			"bIsShapeModified",
-			"Engine: EditorEngine",
-			"GetActorTransform(",
-			"this.CommandNameToIndex[\"SelectTransform\"]",
-			"this."
+			"OffsetElems"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1071,67 +1054,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "penplotter.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 99,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								91,
-								91
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Hatch.pde",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 10256,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/User/Stino/Arduino.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1200,31 +1124,91 @@
 		"selected_items":
 		[
 			[
-				"exten",
-				"~/Projects/Unreal Projects/probuilderjs/Content/Scripts/extension-ProBuilder.js"
+				"",
+				"EditableMeshComponent.ts"
+			],
+			[
+				"edge",
+				"Edge.ts"
+			],
+			[
+				"vert",
+				"Vertex.ts"
 			],
 			[
 				"emc",
 				"EditableMeshComponent.ts"
 			],
 			[
-				"",
-				"PluginManager/PluginManager.ts"
+				"ea",
+				"EditableActor.ts"
+			],
+			[
+				"p",
+				"ProBuilder.ts"
+			],
+			[
+				"utils",
+				"Utils.ts"
+			],
+			[
+				"settings",
+				"Settings.ts"
+			],
+			[
+				"pb",
+				"ProBuilder.ts"
+			],
+			[
+				"exten",
+				"~/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/extension-ProBuilder.js"
+			],
+			[
+				".d.ts",
+				"~/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ProBuilderTypings/ProBuilder.d.ts"
+			],
+			[
+				"face",
+				"Face.ts"
+			],
+			[
+				"uve",
+				"Plugins/UVEditor/UVEditor.ts"
 			],
 			[
 				"octree",
 				"Octree.ts"
 			],
 			[
-				"plugin",
-				"PluginManager/PluginManager.ts"
+				"pbgui",
+				"PBGUI.ts"
 			],
 			[
-				"pro",
+				"object",
+				"Plugins/ObjectActions/ObjectActions.ts"
+			],
+			[
+				"mesh",
+				"EditableMeshComponent.ts"
+			],
+			[
+				"gui",
+				"PBGUI.ts"
+			],
+			[
+				"pr",
 				"ProBuilder.ts"
 			],
 			[
-				"pb",
+				"ex",
+				"~/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/extension-ProBuilder.js"
+			],
+			[
+				"pmc",
+				"ProceduralMeshComponent.ts"
+			],
+			[
+				"pro",
 				"ProBuilder.ts"
 			],
 			[
@@ -1232,7 +1216,83 @@
 				"GizmoHelper.ts"
 			],
 			[
-				"ex",
+				"ext",
+				"~/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/extension-ProBuilder.js"
+			],
+			[
+				"editableme",
+				"EditableMeshComponent.ts"
+			],
+			[
+				"pluginma",
+				"PluginManager/PluginManager.ts"
+			],
+			[
+				"uvedi",
+				"Plugins/UVEditor/UVEditor.ts"
+			],
+			[
+				"uveditorgui",
+				"Plugins/UVEditor/UVEditorGUI.ts"
+			],
+			[
+				"uved",
+				"Plugins/UVEditor/UVEditor.ts"
+			],
+			[
+				"rec",
+				"Commands/RectangleCommand.ts"
+			],
+			[
+				"shape",
+				"Commands/ShapeCommand.ts"
+			],
+			[
+				"fac",
+				"Face.ts"
+			],
+			[
+				"ed",
+				"Edge.ts"
+			],
+			[
+				"verte",
+				"Vertex.ts"
+			],
+			[
+				"probuil",
+				"ProBuilder.ts"
+			],
+			[
+				"plgin",
+				"PluginManager/PluginManager.ts"
+			],
+			[
+				"plugin",
+				"PluginManager/PluginManagerGUI.ts"
+			],
+			[
+				"pluginm",
+				"PluginManager/PluginManager.ts"
+			],
+			[
+				"uv",
+				"Plugins/UV/UVGUI.ts"
+			],
+			[
+				"gizm",
+				"GizmoHelper.ts"
+			],
+			[
+				"csg",
+				"Plugins/CSG/CSG.ts"
+			],
+			[
+				"uvd",
+				"Plugins/UVEditor/UVEditor.ts"
+			],
+			[
+				"exte",
 				"~/Projects/Unreal Projects/probuilderjs/Content/Scripts/extension-ProBuilder.js"
 			],
 			[
@@ -1240,40 +1300,8 @@
 				"GizmoHelper.ts"
 			],
 			[
-				"gizm",
-				"GizmoHelper.ts"
-			],
-			[
-				"ext",
-				"~/Projects/Unreal Projects/probuilderjs/Content/Scripts/extension-ProBuilder.js"
-			],
-			[
-				"ea",
-				"EditableActor.ts"
-			],
-			[
-				"exte",
-				"~/Projects/Unreal Projects/probuilderjs/Content/Scripts/extension-ProBuilder.js"
-			],
-			[
-				"pmc",
-				"ProceduralMeshComponent.ts"
-			],
-			[
 				"compo",
 				"EditableMeshComponent.ts"
-			],
-			[
-				"utils",
-				"Utils.ts"
-			],
-			[
-				"csg",
-				"Plugins/CSG/CSG.ts"
-			],
-			[
-				"gui",
-				"PBGUI.ts"
 			],
 			[
 				"meh",
@@ -1282,10 +1310,6 @@
 			[
 				"util",
 				"Utils.ts"
-			],
-			[
-				"edge",
-				"Edge.ts"
 			],
 			[
 				"sha",
@@ -1304,36 +1328,16 @@
 				"EditableActor.ts"
 			],
 			[
-				"ed",
-				"EditableActor.ts"
-			],
-			[
 				"sele",
 				"Commands/SelectCommand.ts"
-			],
-			[
-				"fac",
-				"Face.ts"
 			],
 			[
 				"cs",
 				"Plugins/CSG/CSG.ts"
 			],
 			[
-				"pluginm",
-				"PluginManager/PluginManager.ts"
-			],
-			[
 				"snap",
 				"Plugins/Snap/Snap.ts"
-			],
-			[
-				"face",
-				"Face.ts"
-			],
-			[
-				"object",
-				"Plugins/ObjectActions/ObjectActions.ts"
 			],
 			[
 				"pm",
@@ -1346,14 +1350,6 @@
 			[
 				"plu",
 				"PluginManager/PluginManager.ts"
-			],
-			[
-				"mesh",
-				"Mesh.ts"
-			],
-			[
-				"p",
-				"ProBuilder.ts"
 			],
 			[
 				"plug",
@@ -1376,20 +1372,8 @@
 				"Vertex.ts"
 			],
 			[
-				"uve",
-				"Plugins/UVEditor/UVEditor.ts"
-			],
-			[
-				"probuil",
-				"ProBuilder.ts"
-			],
-			[
 				"bp",
 				"~/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ProBuilderTypings/ProBuilder.d.ts"
-			],
-			[
-				"shape",
-				"Commands/ShapeCommand.ts"
 			],
 			[
 				"seel",
@@ -1398,10 +1382,6 @@
 			[
 				"edgeaction",
 				"Plugins/EdgeActions/EdgeActions.ts"
-			],
-			[
-				".d.ts",
-				"~/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ProBuilderTypings/ProBuilder.d.ts"
 			],
 			[
 				"edi",
@@ -1456,10 +1436,6 @@
 				"Commands/ShapeCommand.ts"
 			],
 			[
-				"settings",
-				"Settings.ts"
-			],
-			[
 				"setting",
 				"Settings.ts"
 			],
@@ -1480,10 +1456,6 @@
 				"Utils.ts"
 			],
 			[
-				"uved",
-				"Plugins/UVEditor/UVEditorInterfaces.ts"
-			],
-			[
 				"rect",
 				"Commands/RectangleCommand.ts"
 			],
@@ -1494,14 +1466,6 @@
 			[
 				"proc",
 				"ProceduralMeshComponent.ts"
-			],
-			[
-				"rec",
-				"Commands/RectangleCommand.ts"
-			],
-			[
-				"vert",
-				"Vertex.ts"
 			],
 			[
 				"obj",
@@ -1552,10 +1516,6 @@
 				"Commands/CommandManager.ts"
 			],
 			[
-				"uvedi",
-				"Plugins/UVEditor/UVEditor.ts"
-			],
-			[
 				"uvpr",
 				"Plugins/UV/UVProcessing.ts"
 			],
@@ -1566,14 +1526,6 @@
 			[
 				"typ",
 				"~/Projects/Unreal Projects/probuilderjs/Plugins/ProBuilder/Content/Scripts/ProBuilderTypings/ProBuilder.d.ts"
-			],
-			[
-				"uv",
-				"Plugins/UV/UV.ts"
-			],
-			[
-				"pluginma",
-				"PluginManager/PluginManager.ts"
 			],
 			[
 				"b",
@@ -1622,10 +1574,6 @@
 			[
 				"obe",
 				"Plugins/ObjectActions/ObjectActions.ts"
-			],
-			[
-				"pbgui",
-				"PBGUI.ts"
 			],
 			[
 				"aut",
@@ -1686,30 +1634,6 @@
 			[
 				"uvinter",
 				"Plugins/UV/UVInterfaces.ts"
-			],
-			[
-				"gizmohe",
-				"GizmoHelper.ts"
-			],
-			[
-				"uvedgui",
-				"Plugins/UVEditor/UVEditorGUI.ts"
-			],
-			[
-				"uvedinter",
-				"Plugins/UVEditor/UVEditorInterfaces.ts"
-			],
-			[
-				"uvinte",
-				"Plugins/UVEditor/UVEditorInterfaces.ts"
-			],
-			[
-				"uvedinterf",
-				"Plugins/UVEditor/UVEditorInterfaces.ts"
-			],
-			[
-				"uvedii",
-				"Plugins/UVEditor/UVEditorInterfaces.ts"
 			]
 		],
 		"width": 0.0

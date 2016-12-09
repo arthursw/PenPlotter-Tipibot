@@ -22,6 +22,7 @@
     
     Slider symmetrySlider;
     Slider rotationSlider;
+    Slider maxTabletLengthSlider;
 
     Slider t1Slider;
     Slider t2Slider;
@@ -221,7 +222,7 @@
         addButton("off", "Motors Off", leftMargin, posY+=ySpace);
        // addButton("save", "Save", leftMargin, posY+=ySpace);
        // addButton("export", "Export",leftMargin, posY+=ySpace);
- scaleSlider = addSlider(leftMargin,posY += ySpace+10,"scale", "SCALE", 0.1f, 5, userScale);
+        scaleSlider = addSlider(leftMargin,posY += ySpace+10,"scale", "SCALE", 0.1f, 5, userScale);
 
         speedSlider = addSlider(leftMargin,posY += ySpace/2,"speedChanged", "SPEED", 100, 20000, 500);
         speedSlider.onRelease(speedrelease)
@@ -240,7 +241,7 @@
         
         symmetrySlider = addSlider(leftMargin,posY += ySpace/2, "symmetryChanged", "Symmetry", 0.f, 7.f, 0.f);
         rotationSlider = addSlider(leftMargin,posY += ySpace/2, "rotationChanged", "Rotation", 0.f, 36.f, 0.f);
-
+        maxTabletLengthSlider = addSlider(leftMargin,posY += ySpace/2, "maxTabletLengthChanged", "MaxTabletLength", 0.f, 2000.f, 200.f);
 
         
         pixelSizeSlider = addSlider(imageX+20,imageY+imageHeight+60,"pixelSlider", "PIXEL SIZE", 2, 16, pixelSize);
@@ -629,6 +630,10 @@
 
     public void rotationChanged(float newRotation) {
         rotation = (int)newRotation;
+    }
+
+    public void maxTabletLengthChanged(float newMaxTabletLength) {
+        maxTabletLength = newMaxTabletLength;
     }
 
     public void jog(boolean jog, int x, int y)

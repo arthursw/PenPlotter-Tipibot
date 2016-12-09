@@ -208,6 +208,9 @@ int symmetry = 0;
 FloatList tabletQueue = new FloatList();
 FloatList tabletDrawing = new FloatList();
 
+float tabletLength = 0.f;
+float maxTabletLength = 200.f;
+
 private void prepareExitHandler () {
 
     Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
@@ -293,8 +296,9 @@ public void setup() {
 
     tabletX = Integer.parseInt(props.getProperty("tablet.x"));
     tabletX = tabletX < 0 ? 0 : tabletX;
+
     tabletY = Integer.parseInt(props.getProperty("tablet.y"));
-    tabletX = tabletY < 0 ? 0 : tabletY;
+    tabletY = tabletY < 0 ? 0 : tabletY;
     tabletWidth = Integer.parseInt(props.getProperty("tablet.width"));
     tabletWidth = tabletWidth < 0 ? 0 : width;
     tabletHeight = Integer.parseInt(props.getProperty("tablet.height"));
@@ -915,10 +919,13 @@ public void draw() {
 
     if (tabletMode) {
 
+        stroke(color(238, 65, 97));
+        noFill();
+        strokeWeight(1);
+        rect(tabletX, tabletY, tabletWidth, tabletHeight);
+
         float pWidth = paperWidth * 25.4f;
         float pHeight = paperHeight * 25.4f;
-
-        // rect(scaleX(homeX - pWidth / 2), scaleY(homeY), pWidth * zoomScale, pHeight * zoomScale);
 
         float machineX = homeX - pWidth / 2; // scaleX(0);
         float machineY = homeY;// scaleY(0);
@@ -929,6 +936,8 @@ public void draw() {
         // draw tablet lines
 
         if (mousePressed && !pmousePressed) {
+            tabletLength = 0;
+
             tabletQueue.append(tx);
             tabletQueue.append(ty);
             tabletDrawing.clear();
@@ -937,11 +946,19 @@ public void draw() {
             com.sendMoveG0(tx, ty);
             com.sendPenDown();
         } else if (mousePressed && pmousePressed) {
-            tabletQueue.append(tx);
-            tabletQueue.append(ty);
-            tabletDrawing.append(scaleX(tx));
-            tabletDrawing.append(scaleY(ty));
-            com.sendMoveG1(tx, ty);
+            
+            float dx = tx - tabletQueue.get(tabletQueue.size()-2);
+            float dy = ty - tabletQueue.get(tabletQueue.size()-1);
+
+            tabletLength += Math.sqrt( dx * dx + dy * dy);
+            println("tabletLength: "+tabletLength);
+            if(tabletLength < maxTabletLength) {
+                tabletQueue.append(tx);
+                tabletQueue.append(ty);
+                tabletDrawing.append(scaleX(tx));
+                tabletDrawing.append(scaleY(ty));
+                com.sendMoveG1(tx, ty);
+            }
 
         } else if (!mousePressed && pmousePressed) {
             com.sendPenUp();

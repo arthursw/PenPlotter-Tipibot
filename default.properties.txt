@@ -29,7 +29,7 @@ svg.name=/Users/rick/GitHub/PolarGraph/PenPlotter/data/rick520.jpg
 svg.pixelsPerInch=72.0
 svg.shortestSegment=0.0
 // tablet 
-tablet.x = 0
+tablet.x = 300
 tablet.y = 0
 tablet.width = 1024
 tablet.height = 768
