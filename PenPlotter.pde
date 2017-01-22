@@ -49,16 +49,17 @@ Tablet tablet;
 boolean tabletMode = false;
 boolean pmousePressed = false;
 
-// import spacebrew.*;
+import spacebrew.*;
 
 
-String server = "localhost";
+// String server = "localhost";
+String server = "sandbox.spacebrew.cc";
 String name = "Tipibot";
 String description = "Tipibot commands.";
 
 
 // Connection to outer world
-// Spacebrew sb;
+Spacebrew sb;
 JSONObject json;
 
 final static String ICON  = "icons/penDown.png";
@@ -271,18 +272,18 @@ public void setup() {
     // Spacebrew communication:
 
     // instantiate the spacebrewConnection variable
-    // sb = new Spacebrew( this );
+    sb = new Spacebrew( this );
 
     // declare your publishers
     // sb.addPublish( "local_slider", "range", local_slider_val );
     // sb.addPublish( "button_pressed", "boolean", true);
 
     // declare your subscribers
-    // sb.addSubscribe( "commands", "string" );
-    // sb.addSubscribe( "command", "string" );
+    sb.addSubscribe( "commands", "string" );
+    sb.addSubscribe( "command", "string" );
 
     // connect!
-    // sb.connect(server, name, description);
+    sb.connect(server, name, description);
 
 
     //surface.setResizable(true);
@@ -518,7 +519,7 @@ public void keyPressed() {
         } else {
             tabletModeButton.setCaptionLabel("Tablet mode");
         }
-        
+
     }
 }
 void initLogging() {
@@ -767,7 +768,7 @@ public void computeSymmetry(float cx, float cy, boolean horizontal, boolean vert
 
         float nx = horizontal ? -vx : vx;
         float ny = vertical ? -vy : vy;
-        
+
         if(invert) {
             float temp = nx;
             nx = ny;
@@ -835,7 +836,7 @@ public void computeSymmetries(float cx, float cy) {
 
 
         if(x < 0.f || y < 0.f) {
-            
+
             tabletDrawing.append(x);
             tabletDrawing.append(y);
 
@@ -845,7 +846,7 @@ public void computeSymmetries(float cx, float cy) {
             }
         }
         else {
-            
+
             tabletDrawing.append(scaleX(x));
             tabletDrawing.append(scaleY(y));
 
@@ -858,7 +859,7 @@ public void computeSymmetries(float cx, float cy) {
             }
         }
     }
-    
+
 }
 
 
@@ -924,6 +925,10 @@ public void draw() {
         strokeWeight(1);
         rect(tabletX, tabletY, tabletWidth, tabletHeight);
 
+        int drawingMargin = 150;
+        stroke(color(38, 65, 237));
+        rect(tabletX + drawingMargin, tabletY + drawingMargin, tabletWidth - 2 * drawingMargin, tabletHeight - 2 * drawingMargin);
+
         float pWidth = paperWidth * 25.4f;
         float pHeight = paperHeight * 25.4f;
 
@@ -932,6 +937,14 @@ public void draw() {
 
         float tx = ( ( pWidth - 2 * tabletMarginX ) * ( mouseX - tabletX ) / tabletWidth ) + machineX + tabletMarginX;
         float ty = ( ( pHeight - 2 * tabletMarginY ) * ( mouseY - tabletY ) / tabletHeight ) + machineY + tabletMarginY;
+
+        // float drawingMargin = 0.0f;
+        // float marginSize = pWidth * drawingMargin / 2.0f;
+
+        // float oneMinusDrawinMargin = 1.0f - drawingMargin;
+
+        // tx = tx * oneMinusDrawinMargin + marginSize;
+        // ty = ty * oneMinusDrawinMargin + marginSize;
 
         // draw tablet lines
 
@@ -946,7 +959,7 @@ public void draw() {
             com.sendMoveG0(tx, ty);
             com.sendPenDown();
         } else if (mousePressed && pmousePressed) {
-            
+
             float dx = tx - tabletQueue.get(tabletQueue.size()-2);
             float dy = ty - tabletQueue.get(tabletQueue.size()-1);
 
@@ -997,7 +1010,7 @@ public void draw() {
             //     line(px, py, fx, fy);
             // }
         }
-        
+
 
         pmousePressed = mousePressed;
     }
@@ -1128,6 +1141,9 @@ void onCustomMessage( String name, String type, String value ) {
 
 void onStringMessage( String name, String value ) {
     println("got string message " + name + " : " + value);
+    println("name: "+name);
+    println("value: "+value);
+
     if (name.equals("commands")) {
         JSONObject object = parseJSONObject(value);
         JSONObject bounds = object.getJSONObject("bounds");
@@ -1168,12 +1184,15 @@ void onStringMessage( String name, String value ) {
         currentPlot.loaded = true;
         currentPlot.showControls(); // not necessary but fancy
     } else if (name.equals("command")) {
+        println("command.");
+
         if (currentPlot.isPlotting()) {
             currentPlot.clear(); // or reset();  resets and calls plotDone() which reset the plot button :-)
         }
 
         JSONObject object = parseJSONObject(value);
         String type = object.getString("type");
+        println("type: "+type);
         if (type.equals("pen")) {
             String direction = object.getString("direction");
             if (direction.equals("up")) {
@@ -1183,23 +1202,67 @@ void onStringMessage( String name, String value ) {
             }
         } else if (type.equals("goTo") || type.equals("moveTo")) {
             JSONObject point = object.getJSONObject("point");
+            println("point: "+point);
+
             float x = point.getFloat("x");
             float y = point.getFloat("y");
+            println("x: "+x);
+            println("y: "+y);
 
             JSONObject bounds = object.getJSONObject("bounds");
+            println("bounds: "+bounds);
+
             float oX = 0.0;                       // machineWidth/2;
             float oY = paperHeight * 25.4 / 2.0;  // machineHeight/2;
             float bx = bounds.getFloat("x");
+            println("bx: "+bx);
             float by = bounds.getFloat("y");
+            println("by: "+by);
             float bw = bounds.getFloat("width");
+            println("bw: "+bw);
             float bh = bounds.getFloat("height");
+            println("bh: "+bh);
+
             float scale = object.getFloat("scale") / 100;
-            RPoint p = new RPoint(oX + (x - bx - bw / 2) * scale, oY + (y - by - bh / 2) * scale);
-            if (type.equals("moveTo")) {
-                com.sendMoveG0(p.x + machineWidth / 2 + offX, p.y + homeY + offY);
-            } else if (type.equals("goTo")) {
-                com.sendMoveG1(p.x + machineWidth / 2 + offX, p.y + homeY + offY);
+            
+            println("scale: "+scale);
+
+            float pWidth = paperWidth * 25.4f;
+            float pHeight = paperHeight * 25.4f;
+
+            float machineX = homeX - pWidth / 2; // scaleX(0);
+            float machineY = homeY;// scaleY(0);
+
+            // float tx = ( ( pWidth - 2 * tabletMarginX ) * ( mouseX - tabletX ) / tabletWidth ) + machineX + tabletMarginX;
+            // float ty = ( ( pHeight - 2 * tabletMarginY ) * ( mouseY - tabletY ) / tabletHeight ) + machineY + tabletMarginY;
+
+            // RPoint p = new RPoint(oX + (x - bx - bw / 2) * scale, oY + (y - by - bh / 2) * scale);
+            RPoint p = new RPoint(((x - bx) / bw) * pWidth + machineX, ((y - by) / bh)  * pHeight + machineY);
+
+            float px = p.x;
+            float py = p.y;
+            // println("p: ");
+
+            // float px = p.x + machineWidth / 2 + offX;
+            // println("px: "+px);
+            // float py = p.y + homeY + offY;
+            // println("py: "+py);
+            
+            try {
+                if (type.equals("moveTo")) {
+                    println("send move: ");
+                    com.sendMoveG0(px, py);
+                } else if (type.equals("goTo")) {
+                    println("send goto: ");
+                    com.sendMoveG1(px, py);
+                }
+            } catch( Exception e ){
+                println("error: " + e);
             }
+            
+            println("currentX: "+currentX);
+            currentX = px;
+            currentY = py;
         }
     }
 }

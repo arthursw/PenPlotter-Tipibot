@@ -19,8 +19,8 @@ machine.offY=388
 machine.penSize=0.5
 machine.motors.stepsPerRev=3200.0
 //200 steps x 16 microsteps
-servo.angle.down=900
-servo.angle.up=1478
+servo.angle.down=1500
+servo.angle.up=900
 servo.tempo.up=150
 servo.tempo.down=150
 servo.dwell=250
@@ -36,22 +36,22 @@ tablet.height = 768
 tablet.margin.x=0
 tablet.margin.y=0
 
-machine.homepoint.y=320
+machine.homepoint.y=375
 //Hauteur de la feuille par rapport à l'axe des moteurs
 
-machine.homepoint.offsety=800
+machine.homepoint.offsety=1715
 //Hauteur de ton point d'origine par rapport au haut de la feuille
 
-machine.height=2000
+machine.height=3000
 //Largeur du Tipibot en mm
 
-machine.width=1645
+machine.width=2815
 //Largeur du Tipibot en mm
 
-paper.height=600
+paper.height=1715
 //Hauteur de ta feuille en mm
 
-paper.width=800
+paper.width=1715
 //Largeur de ta feuille en mm
 
 
