@@ -40,8 +40,12 @@
     MyButton loadButton;
     MyButton plotButton;
     MyButton penUpButton;
+    MyButton fastModeButton;
+    MyButton sendDataButton;
     MyButton setPenPositionButton;
     MyButton tabletModeButton;
+
+    MyButton stopButton;
     
     String[] filters = {"Hatch","Diamond","Square","Stipple"};
 
@@ -203,6 +207,8 @@
         addButton("right", "", leftMargin+56, posY).onPress(press).onRelease(release).setSize(30, 24);
 
         addButton("down", "", leftMargin+36, posY+=30).onPress(press).onRelease(release).setSize(30, 24);
+        
+        stopButton = addButton("stop", "Stop", leftMargin, posY+=ySpace);
 
         loadButton = addButton("load", "Load", leftMargin, posY+=ySpace);
         plotButton = addButton("plot", "Plot", leftMargin, posY+=ySpace);
@@ -217,6 +223,8 @@
        
 
         penUpButton = addButton("penUp", "Pen Up", leftMargin, posY+=ySpace);
+        fastModeButton = addButton("fastMode", "Fast mode", leftMargin, posY+=ySpace);
+        sendDataButton = addButton("sendData", "Send data", leftMargin, posY+=ySpace);
 
         addButton("goHome", "Go Home", leftMargin, posY+=ySpace);
         addButton("off", "Motors Off", leftMargin, posY+=ySpace);
@@ -224,7 +232,7 @@
        // addButton("export", "Export",leftMargin, posY+=ySpace);
         scaleSlider = addSlider(leftMargin,posY += ySpace+10,"scale", "SCALE", 0.1f, 5, userScale);
 
-        speedSlider = addSlider(leftMargin,posY += ySpace/2,"speedChanged", "SPEED", 100, 20000, 500);
+        speedSlider = addSlider(leftMargin,posY += ySpace/2,"speedChanged", "SPEED", 10, 2000, 500);
         speedSlider.onRelease(speedrelease)
                 .onReleaseOutside(speedrelease);
 
@@ -519,6 +527,31 @@
         }
     }
 
+    public void fastMode(ControlEvent theEvent)
+    {
+        Button b = (Button) theEvent.getController();
+        
+        println(b.getCaptionLabel().getText());
+        if (b.getCaptionLabel().getText().indexOf("Fast") >= 0)
+        {
+            fastMode = true;
+            fastModeButton.setCaptionLabel("Slow mode");
+        } else
+        {
+            fastMode = false;
+            fastModeButton.setCaptionLabel("Fast mode");
+        }
+        println("fastMode: "+fastMode);
+    }
+
+    public void sendData(ControlEvent theEvent)
+    {
+        Button b = (Button) theEvent.getController();
+        
+        println(b.getCaptionLabel().getText());
+        com.sendData();
+    }
+
     public void goHome()
     {
         com.sendAbsolute();
@@ -648,4 +681,8 @@
             jogX = 0;
             jogY = 0;
         }
+    }
+
+    public void stop() {
+        com.stop();
     }

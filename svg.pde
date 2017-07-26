@@ -64,45 +64,57 @@
           else
             return "0/"+penPaths.size();
         }
+
+        public void sendPath() {
+
+          float x1 = penPaths.get(svgPathIndex).getPoint(svgLineIndex).x * scaleX + machineWidth / 2 + offX;
+          float y1 = penPaths.get(svgPathIndex).getPoint(svgLineIndex).y * scaleY + homeY + offY;
+          float x2 = penPaths.get(svgPathIndex).getPoint(svgLineIndex + 1).x * scaleX + machineWidth / 2 + offX;
+          float y2 = penPaths.get(svgPathIndex).getPoint(svgLineIndex + 1).y * scaleY + homeY + offY;
+
+
+          if (svgLineIndex == 0) {
+              com.sendPenUp();
+              com.sendMoveG0(x1, y1);
+              com.sendPenDown();
+          }
+
+          com.sendMoveG1(x2, y2);
+
+          if(delay > 0) {
+            com.sendPause(delay);
+          }
+          
+          svgLineIndex++;
+        }
+
         public void nextPlot(boolean preview) {
             if (svgPathIndex < 0) {
-                plotting= false;
-                plotDone();
+                closePlot();
                 return;
             }
 
 
             if (svgPathIndex < penPaths.size()) {
+              if(fastMode) {
+                while(svgLineIndex < penPaths.get(svgPathIndex).size() - 1) {
+                  sendPath();
+                }
+                svgPathIndex++;
+                svgLineIndex = 0;
+                nextPlot(true);
+              } else {
                 if (svgLineIndex < penPaths.get(svgPathIndex).size() - 1) {
-
-                    float x1 = penPaths.get(svgPathIndex).getPoint(svgLineIndex).x * scaleX + machineWidth / 2 + offX;
-                    float y1 = penPaths.get(svgPathIndex).getPoint(svgLineIndex).y * scaleY + homeY + offY;
-                    float x2 = penPaths.get(svgPathIndex).getPoint(svgLineIndex + 1).x * scaleX + machineWidth / 2 + offX;
-                    float y2 = penPaths.get(svgPathIndex).getPoint(svgLineIndex + 1).y * scaleY + homeY + offY;
-
-
-                    if (svgLineIndex == 0) {
-                        com.sendPenUp();
-                        com.sendMoveG0(x1, y1);
-                        com.sendPenDown();
-                    }
-
-                    com.sendMoveG1(x2, y2);
-
-                    if(delay > 0) {
-                      com.sendPause(delay);
-                    }
-                    
-                    svgLineIndex++;
+                  sendPath();
                 } else {
                     svgPathIndex++;
                     svgLineIndex = 0;
                     nextPlot(true);
                 }
+              }
             } else // finished
             {
-                plotting = false;
-                plotDone();
+                closePlot();
                 float x1 = homeX;
                 float y1 = homeY;
 
@@ -117,11 +129,19 @@
 
         public void plot() {
             if (sh != null) {
-                
                 svgPathIndex = 0;
                 svgLineIndex = 0;
+                // start writing to SD card
+                com.sendOpenFile();
                 super.plot();
             }
+        }
+
+        public void closePlot() {
+          plotting = false;
+          com.sendCloseFile();
+          com.sendPrintFile();
+          plotDone();
         }
 
         public void rotate() {
@@ -139,7 +159,7 @@
         }
 
         public void draw() {
-            println("offX: " + offX + ", offY: " + offY);
+            //println("offX: " + offX + ", offY: " + offY);
             
             lastX = -offX;
             lastY = -offY;

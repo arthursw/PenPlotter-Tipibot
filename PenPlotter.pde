@@ -44,12 +44,16 @@ import java.awt.Toolkit;
 import java.awt.BorderLayout;
 
 import codeanticode.tablet.*;
+
+import websockets.*;
+WebsocketServer ws;
+
 Tablet tablet;
 
 boolean tabletMode = false;
 boolean pmousePressed = false;
 
-import spacebrew.*;
+// import spacebrew.*;
 
 
 // String server = "localhost";
@@ -59,7 +63,7 @@ String description = "Tipibot commands.";
 
 
 // Connection to outer world
-Spacebrew sb;
+// Spacebrew sb;
 JSONObject json;
 
 final static String ICON  = "icons/penDown.png";
@@ -86,6 +90,9 @@ int homeOffsetY = 2250;
 
 float currentX = homeX;   // X location of gondola
 float currentY = homeY;   // X location of gondola
+
+float previousX = 0;
+float previousY = 0;
 
 int tabletX = 0;
 int tabletY = 0;
@@ -139,6 +146,8 @@ boolean overTop = false;
 boolean overBottom = false;
 boolean motorsOn = false;
 
+boolean fastMode = false;
+
 
 int pageColor = color(255, 255, 255);
 int machineColor = color(250, 250, 250);
@@ -165,6 +174,7 @@ int buttonBorderColor = color(0, 0, 0);
 Plot currentPlot = new Plot();
 float lastX = 0;
 float lastY = 0;
+
 PApplet applet = this;
 PImage simage;
 PImage oimg;
@@ -212,6 +222,8 @@ FloatList tabletDrawing = new FloatList();
 float tabletLength = 0.f;
 float maxTabletLength = 200.f;
 
+PrintWriter gpsCoordsFileWriter;
+
 private void prepareExitHandler () {
 
     Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
@@ -249,6 +261,9 @@ public void settings() {
 }
 
 public void setup() {
+    gpsCoordsFileWriter = createWriter("gpsCoords.txt");
+
+    ws = new WebsocketServer(this,8025,"/tipibot");
 
     String he = "FF8AC443";
 
@@ -269,21 +284,21 @@ public void setup() {
 
     tablet = new Tablet(this);
 
-    // Spacebrew communication:
+    // // Spacebrew communication:
 
-    // instantiate the spacebrewConnection variable
-    sb = new Spacebrew( this );
+    // // instantiate the spacebrewConnection variable
+    // sb = new Spacebrew( this );
 
-    // declare your publishers
-    // sb.addPublish( "local_slider", "range", local_slider_val );
-    // sb.addPublish( "button_pressed", "boolean", true);
+    // // declare your publishers
+    // // sb.addPublish( "local_slider", "range", local_slider_val );
+    // // sb.addPublish( "button_pressed", "boolean", true);
 
-    // declare your subscribers
-    sb.addSubscribe( "commands", "string" );
-    sb.addSubscribe( "command", "string" );
+    // // declare your subscribers
+    // sb.addSubscribe( "commands", "string" );
+    // sb.addSubscribe( "command", "string" );
 
-    // connect!
-    sb.connect(server, name, description);
+    // // connect!
+    // sb.connect(server, name, description);
 
 
     //surface.setResizable(true);
@@ -405,6 +420,9 @@ public void mousePressed() {
     oldOriginY = originY;
     oldOffX = offXTopLeft;
     oldOffY = offY;
+
+    previousX = currentX;
+    previousY = currentY;
 }
 
 public void mouseDragged() {
@@ -444,8 +462,11 @@ public void mouseReleased() {
     for (Handle handle : handles) {
         if (handle.wasActive()) {
             if (handle.id.equals("gondola") && !settingPenPosition) {
-
-                com.sendMoveG0(currentX, currentY);
+                float newX = currentX;
+                float newY = currentY;
+                currentX = previousX;
+                currentY = previousY;
+                com.sendMoveG0(newX, newY);
             }
             if (handle.id.equals("homeY")) {
                 com.sendHome();
@@ -520,6 +541,11 @@ public void keyPressed() {
             tabletModeButton.setCaptionLabel("Tablet mode");
         }
 
+
+    }
+
+    if(key == 'w') {
+        gpsCoordsFileWriter.flush();
     }
 }
 void initLogging() {
@@ -1208,7 +1234,7 @@ void onStringMessage( String name, String value ) {
             float y = point.getFloat("y");
             println("x: "+x);
             println("y: "+y);
-
+            
             JSONObject bounds = object.getJSONObject("bounds");
             println("bounds: "+bounds);
 
@@ -1223,9 +1249,17 @@ void onStringMessage( String name, String value ) {
             float bh = bounds.getFloat("height");
             println("bh: "+bh);
 
-            float scale = object.getFloat("scale") / 100;
+            JSONObject scale = object.getJSONObject("scale");
+            float scaleX = scale.getFloat("x");
+            float scaleY = scale.getFloat("y");
+
+            println("scale: " + scaleX + ", " + scaleY);
+
+            JSONObject offset = object.getJSONObject("offset");
+            float offsetX = offset.getFloat("x");
+            float offsetY = offset.getFloat("y");
             
-            println("scale: "+scale);
+            println("offset: " + offsetX + ", " + offsetY);
 
             float pWidth = paperWidth * 25.4f;
             float pHeight = paperHeight * 25.4f;
@@ -1237,10 +1271,13 @@ void onStringMessage( String name, String value ) {
             // float ty = ( ( pHeight - 2 * tabletMarginY ) * ( mouseY - tabletY ) / tabletHeight ) + machineY + tabletMarginY;
 
             // RPoint p = new RPoint(oX + (x - bx - bw / 2) * scale, oY + (y - by - bh / 2) * scale);
-            RPoint p = new RPoint(((x - bx) / bw) * pWidth + machineX, ((y - by) / bh)  * pHeight + machineY);
+            RPoint p = new RPoint( (((x - bx + offsetX) / bw) * scaleX) * pWidth + machineX, (((y - by + offsetY) / bh)  * scaleY)  * pHeight + machineY);
 
             float px = p.x;
             float py = p.y;
+
+            gpsCoordsFileWriter.println(x + ", " + y + " - " + px + ", " + py);
+            gpsCoordsFileWriter.flush();
             // println("p: ");
 
             // float px = p.x + machineWidth / 2 + offX;
@@ -1267,6 +1304,29 @@ void onStringMessage( String name, String value ) {
     }
 }
 
+void webSocketServerEvent(String msg) {
+    onStringMessage("command", msg);
+}
+
 void onBooleanMessage( String name, boolean value ) {
     println("got bool message " + name + " : " + value);
+}
+
+
+void orthoToPolar(float x, float y, RPoint lr) {
+  float x2 = x * x;
+  float y2 = y * y;
+  float WmX = machineWidth - x;
+  float WmX2 = WmX * WmX;
+  lr.x = sqrt(x2 + y2);
+  lr.y = sqrt(WmX2 + y2);
+}
+
+void polarToOrtho(float l, float r, RPoint xy) {
+  float l2 = l * l;
+  float r2 = r * r;
+  float w2 = machineWidth * machineWidth;
+  xy.x = (l2 - r2 + w2) / ( 2.0 * machineWidth );
+  float x2 = xy.x * xy.x;
+  xy.y = sqrt(l2 - x2);
 }
