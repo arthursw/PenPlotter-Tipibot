@@ -45,8 +45,12 @@ import java.awt.BorderLayout;
 
 import codeanticode.tablet.*;
 
+// import http.requests.*;
+
 import websockets.*;
 WebsocketServer ws;
+
+// WebsocketClient wsc;
 
 Tablet tablet;
 
@@ -205,6 +209,8 @@ int servoDownTempo = 1000;
 int rate;
 int tick;
 
+int seconds = 0;
+
 float paperWidth = 8.5;
 float paperHeight = 11;
 public static Console console;
@@ -223,6 +229,8 @@ float tabletLength = 0.f;
 float maxTabletLength = 200.f;
 
 PrintWriter gpsCoordsFileWriter;
+
+boolean isDrawing = false;
 
 private void prepareExitHandler () {
 
@@ -264,6 +272,7 @@ public void setup() {
     gpsCoordsFileWriter = createWriter("gpsCoords.txt");
 
     ws = new WebsocketServer(this,8025,"/tipibot");
+    // wsc = new WebsocketClient(this, "ws://localhost:8000/socket.io/1/websocket/45340132079");
 
     String he = "FF8AC443";
 
@@ -888,8 +897,108 @@ public void computeSymmetries(float cx, float cy) {
 
 }
 
+// boolean  drawingRequestSent = false;
+
+public RPoint pointFromObject(JSONObject point) {
+    return new RPoint(point.getFloat("x"), point.getFloat("y"));
+}
+
+public RPoint posOnPlanetToProject(RPoint point, RPoint planet) {
+    float x = planet.x * 360 + point.x;
+    float y = planet.y * 180 + point.y;
+    x *= 1000;
+    y *= 1000;
+    return new RPoint(x,y);
+}
+
+public void createPath(JSONArray points, RPoint planet, RShape shape) {
+    RPoint point = pointFromObject(points.getJSONObject(0));
+    RPoint handleIn = pointFromObject(points.getJSONObject(1));
+    handleIn.add(point);
+    RPoint handleOut = pointFromObject(points.getJSONObject(2));
+    handleOut.add(point);
+    shape.addMoveTo(point);
+    for(int i=1; i<points.size() ; i+=4) {
+        point = posOnPlanetToProject(pointFromObject(points.getJSONObject(i)), planet);
+        handleIn = pointFromObject(points.getJSONObject(i+1));
+        handleIn.add(point);
+        shape.addBezierTo(handleOut, handleIn, point);
+        handleOut = pointFromObject(points.getJSONObject(i+2));
+        handleOut.add(point);
+    }
+}
+
+// public void webSocketEvent(String msg) {
+//     println("webSocketEvent:");
+//     println(msg);
+//     // getNextValidatedDrawing(msg);
+// }
+
+public void requestNextDrawing() {
+    println("requestNextDrawing...");
+    JSONObject params = new JSONObject();
+    params.setString("type", "getNextValidatedDrawing");
+    ws.sendMessage(params.toString());
+    // drawingRequestSent = true;
+}
+
+public void setDrawingStatusDrawn(String pk) {
+    JSONObject params = new JSONObject();
+    params.setString("type", "setDrawingStatusDrawn");
+    params.setString("pk", pk);
+    ws.sendMessage(params.toString());
+}
+
+
+// public void getNextValidatedDrawing(String result) {
+    
+//     // PostRequest post = new PostRequest("http://localhost:8000/ajaxCallNoCSRF/");
+//     // post.addHeader("X-Requested-With", "XMLHttpRequest");
+//     // post.addHeader("Content-Type", "application/json");
+
+//     // JSONObject params = new JSONObject();
+//     // JSONObject data = new JSONObject();
+//     // data.setString("function", "getNextValidatedDrawing");
+//     // JSONArray args = new JSONArray();
+//     // data.setJSONArray("args", args);
+//     // params.setJSONObject("data", data);
+
+//     // post.addJson(params.toString());
+//     // // post.addData("name", "Rune");
+//     // post.send();
+//     // System.out.println("Reponse Content: " + post.getContent());
+//     // System.out.println("Reponse Content-Length Header: " + post.getHeader("Content-Length"));
+
+//     JSONObject response = parseJSONObject(result);
+//     println("status: " + response.getString("state") + ", pk: " + response.getString("pk"));
+
+//     JSONArray paths = response.getJSONArray("paths");
+//     println("paths: ");
+//     for(int i=0; i<paths.size() ; i++) {
+//         JSONObject path = paths.getJSONObject(i);
+//         JSONObject pathData = path.getJSONObject("data");
+//         RShape shape = new RShape();
+//         createPath(pathData.getJSONArray("points"), pointFromObject(pathData.getJSONObject("planet")), shape);
+
+//         shape.setStroke(color(0, 128, 255, 50));
+//         shape.setStrokeWeight(10);
+//     }
+// }
 
 public void draw() {
+
+    int s = second();  // Values from 0 - 59
+    
+    if(s - seconds > 0 && !isDrawing) {
+        // data: JSON.stringify { function: 'savePath', args: args } 
+        requestNextDrawing();
+        // wsc.sendMessage("\"{\"name\":\"getNextValidatedDrawing\",\"args\":[]}\"");
+        // wsc.sendMessage("\"{\"name\":\"setDrawingStatusDrawn\",\"args\":[\"" + pk + "\"]}\"");
+
+        // setDrawingStatusDrawn(request, pk, secret)
+    }
+
+    seconds = s;
 
     background(backgroundColor);
 
@@ -1160,28 +1269,25 @@ public void drawTicks() {
     }
 }
 
+void setPlotFromJSON(JSONObject object) {
 
-void onCustomMessage( String name, String type, String value ) {
-    println("got range message " + name + " : " + value + ", type: " + type);
-}
+    float pWidth = paperWidth * 25.4f;
+    float pHeight = paperHeight * 25.4f;
 
-void onStringMessage( String name, String value ) {
-    println("got string message " + name + " : " + value);
-    println("name: "+name);
-    println("value: "+value);
+    JSONObject bounds = object.getJSONObject("bounds");
+    float oX = homeX - pWidth / 2;                       // machineWidth/2;
+    float oY = -offY-homeY;
+    // float oY = paperHeight * 25.4 / 2.0;  // machineHeight/2;
+    float bx = bounds.getFloat("x");
+    float by = bounds.getFloat("y");
+    float bw = bounds.getFloat("width");
+    float bh = bounds.getFloat("height");
+    JSONArray paths = object.getJSONArray("paths");
 
-    if (name.equals("commands")) {
-        JSONObject object = parseJSONObject(value);
-        JSONObject bounds = object.getJSONObject("bounds");
-        float oX = 0.0;                       // machineWidth/2;
-        float oY = paperHeight * 25.4 / 2.0;  // machineHeight/2;
-        float bx = bounds.getFloat("x");
-        float by = bounds.getFloat("y");
-        float bw = bounds.getFloat("width");
-        float bh = bounds.getFloat("height");
-        JSONArray paths = object.getJSONArray("paths");
 
-        float scale = 1.0; // object.getFloat("scale")/100;
+    float scale = 1.0; // object.getFloat("scale")/100;
+
+    if(paths.size() > 0) {
 
         RShape shape = new RShape();
         for (int i = 0; i < paths.size(); i++) {
@@ -1192,7 +1298,7 @@ void onStringMessage( String name, String value ) {
                 float x = point.getFloat("x");
                 float y = point.getFloat("y");
                 println("x: " + x + ", y: " + y);
-                RPoint p = new RPoint(oX + (x - bx - bw / 2) * scale, oY + (y - by - bh / 2) * scale);
+                RPoint p = new RPoint(oX + ((x - bx) / bw) * pWidth / scaleX, oY + ((y - by) / bh) * pHeight / scaleY);
                 if (j == 0) {
                     path = new RPath(p);
                 } else {
@@ -1200,6 +1306,13 @@ void onStringMessage( String name, String value ) {
                 }
             }
             shape.addPath(path);
+
+            RPath paperBounds = new RPath(new RPoint(oX, oY));
+            paperBounds.addLineTo(new RPoint(oX+pWidth / scaleX, oY+0.0));
+            paperBounds.addLineTo(new RPoint(oX+pWidth / scaleX, oY+pHeight / scaleY));
+            paperBounds.addLineTo(new RPoint(oX+0.0, oY+pHeight / scaleY));
+            paperBounds.addLineTo(new RPoint(oX+0.0, oY+0.0));
+            shape.addPath(paperBounds);
         }
 
         currentPlot.clear(); // or reset();  resets and calls plotDone() which reset the plot button :-)
@@ -1209,109 +1322,124 @@ void onStringMessage( String name, String value ) {
         ((SvgPlot)currentPlot).sh = shape;
         currentPlot.loaded = true;
         currentPlot.showControls(); // not necessary but fancy
-    } else if (name.equals("command")) {
-        println("command.");
-
-        if (currentPlot.isPlotting()) {
-            currentPlot.clear(); // or reset();  resets and calls plotDone() which reset the plot button :-)
-        }
-
-        JSONObject object = parseJSONObject(value);
-        String type = object.getString("type");
-        println("type: "+type);
-        if (type.equals("pen")) {
-            String direction = object.getString("direction");
-            if (direction.equals("up")) {
-                com.sendPenUp();
-            } else if (direction.equals("down")) {
-                com.sendPenDown();
-            }
-        } else if (type.equals("goTo") || type.equals("moveTo")) {
-            JSONObject point = object.getJSONObject("point");
-            println("point: "+point);
-
-            float x = point.getFloat("x");
-            float y = point.getFloat("y");
-            println("x: "+x);
-            println("y: "+y);
-            
-            JSONObject bounds = object.getJSONObject("bounds");
-            println("bounds: "+bounds);
-
-            float oX = 0.0;                       // machineWidth/2;
-            float oY = paperHeight * 25.4 / 2.0;  // machineHeight/2;
-            float bx = bounds.getFloat("x");
-            println("bx: "+bx);
-            float by = bounds.getFloat("y");
-            println("by: "+by);
-            float bw = bounds.getFloat("width");
-            println("bw: "+bw);
-            float bh = bounds.getFloat("height");
-            println("bh: "+bh);
-
-            JSONObject scale = object.getJSONObject("scale");
-            float scaleX = scale.getFloat("x");
-            float scaleY = scale.getFloat("y");
-
-            println("scale: " + scaleX + ", " + scaleY);
-
-            JSONObject offset = object.getJSONObject("offset");
-            float offsetX = offset.getFloat("x");
-            float offsetY = offset.getFloat("y");
-            
-            println("offset: " + offsetX + ", " + offsetY);
-
-            float pWidth = paperWidth * 25.4f;
-            float pHeight = paperHeight * 25.4f;
-
-            float machineX = homeX - pWidth / 2; // scaleX(0);
-            float machineY = homeY;// scaleY(0);
-
-            // float tx = ( ( pWidth - 2 * tabletMarginX ) * ( mouseX - tabletX ) / tabletWidth ) + machineX + tabletMarginX;
-            // float ty = ( ( pHeight - 2 * tabletMarginY ) * ( mouseY - tabletY ) / tabletHeight ) + machineY + tabletMarginY;
-
-            // RPoint p = new RPoint(oX + (x - bx - bw / 2) * scale, oY + (y - by - bh / 2) * scale);
-            RPoint p = new RPoint( (((x - bx + offsetX) / bw) * scaleX) * pWidth + machineX, (((y - by + offsetY) / bh)  * scaleY)  * pHeight + machineY);
-
-            float px = p.x;
-            float py = p.y;
-
-            gpsCoordsFileWriter.println(x + ", " + y + " - " + px + ", " + py);
-            gpsCoordsFileWriter.flush();
-            // println("p: ");
-
-            // float px = p.x + machineWidth / 2 + offX;
-            // println("px: "+px);
-            // float py = p.y + homeY + offY;
-            // println("py: "+py);
-            
-            try {
-                if (type.equals("moveTo")) {
-                    println("send move: ");
-                    com.sendMoveG0(px, py);
-                } else if (type.equals("goTo")) {
-                    println("send goto: ");
-                    com.sendMoveG1(px, py);
-                }
-            } catch( Exception e ){
-                println("error: " + e);
-            }
-            
-            println("currentX: "+currentX);
-            currentX = px;
-            currentY = py;
-        }
     }
 }
 
+void setPenPosition(JSONObject object) {
+    
+    if (currentPlot.isPlotting()) {
+        currentPlot.clear(); // or reset();  resets and calls plotDone() which reset the plot button :-)
+    }
+
+    String direction = object.getString("direction");
+    if (direction.equals("up")) {
+        com.sendPenUp();
+    } else if (direction.equals("down")) {
+        com.sendPenDown();
+    }
+
+}
+
+void goToMoveTo(JSONObject object) {
+
+    if (currentPlot.isPlotting()) {
+        currentPlot.clear(); // or reset();  resets and calls plotDone() which reset the plot button :-)
+    }
+    String type = object.getString("type");
+    JSONObject point = object.getJSONObject("point");
+    println("point: "+point);
+
+    float x = point.getFloat("x");
+    float y = point.getFloat("y");
+    println("x: "+x);
+    println("y: "+y);
+    
+    JSONObject bounds = object.getJSONObject("bounds");
+    println("bounds: "+bounds);
+
+    float oX = 0.0;                       // machineWidth/2;
+    float oY = paperHeight * 25.4 / 2.0;  // machineHeight/2;
+    float bx = bounds.getFloat("x");
+    println("bx: "+bx);
+    float by = bounds.getFloat("y");
+    println("by: "+by);
+    float bw = bounds.getFloat("width");
+    println("bw: "+bw);
+    float bh = bounds.getFloat("height");
+    println("bh: "+bh);
+
+    JSONObject scale = object.getJSONObject("scale");
+    float scaleX = scale.getFloat("x");
+    float scaleY = scale.getFloat("y");
+
+    println("scale: " + scaleX + ", " + scaleY);
+
+    JSONObject offset = object.getJSONObject("offset");
+    float offsetX = offset.getFloat("x");
+    float offsetY = offset.getFloat("y");
+    
+    println("offset: " + offsetX + ", " + offsetY);
+
+    float pWidth = paperWidth * 25.4f;
+    float pHeight = paperHeight * 25.4f;
+
+    float machineX = homeX - pWidth / 2; // scaleX(0);
+    float machineY = homeY;// scaleY(0);
+
+    // float tx = ( ( pWidth - 2 * tabletMarginX ) * ( mouseX - tabletX ) / tabletWidth ) + machineX + tabletMarginX;
+    // float ty = ( ( pHeight - 2 * tabletMarginY ) * ( mouseY - tabletY ) / tabletHeight ) + machineY + tabletMarginY;
+
+    // RPoint p = new RPoint(oX + (x - bx - bw / 2) * scale, oY + (y - by - bh / 2) * scale);
+    RPoint p = new RPoint( (((x - bx + offsetX) / bw) * scaleX) * pWidth + machineX, (((y - by + offsetY) / bh)  * scaleY)  * pHeight + machineY);
+
+    float px = p.x;
+    float py = p.y;
+
+    gpsCoordsFileWriter.println(x + ", " + y + " - " + px + ", " + py);
+    gpsCoordsFileWriter.flush();
+    // println("p: ");
+
+    // float px = p.x + machineWidth / 2 + offX;
+    // println("px: "+px);
+    // float py = p.y + homeY + offY;
+    // println("py: "+py);
+    
+    try {
+        if (type.equals("moveTo")) {
+            println("send move: ");
+            com.sendMoveG0(px, py);
+        } else if (type.equals("goTo")) {
+            println("send goto: ");
+            com.sendMoveG1(px, py);
+        }
+    } catch( Exception e ){
+        println("error: " + e);
+    }
+    
+    println("currentX: "+currentX);
+    currentX = px;
+    currentY = py;
+}
+
 void webSocketServerEvent(String msg) {
-    onStringMessage("command", msg);
-}
+    JSONObject object = parseJSONObject(msg);
+    String type = object.getString("type");
+    println("type: "+type);
 
-void onBooleanMessage( String name, boolean value ) {
-    println("got bool message " + name + " : " + value);
-}
+    if (type.equals("setPlot")) {
+        setPlotFromJSON(object);
+    } else if (type.equals("setNextDrawing")) {
+        
+        // drawingRequestSent = false;
+        isDrawing = true;
+        setPlotFromJSON(object);
 
+    } else if (type.equals("pen")) {
+        setPenPosition(object);
+    } else if (type.equals("goTo") || type.equals("moveTo")) {
+        goToMoveTo(object);
+    }
+}
 
 void orthoToPolar(float x, float y, RPoint lr) {
   float x2 = x * x;
