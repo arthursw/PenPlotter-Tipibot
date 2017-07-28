@@ -428,6 +428,7 @@ class Message {
             oksend(msg);
         else
             queue(msg);
+        thread("nextMsg");
     }
 
     public void sendBytes(byte[] bytes) {

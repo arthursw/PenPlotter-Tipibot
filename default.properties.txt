@@ -15,7 +15,7 @@ machine.motors.mmPerRev=96.0
 machine.delay=0
 machine.zoomScale=0.87
 machine.offX=0
-machine.offY=388
+machine.offY=0
 machine.penSize=0.5
 machine.motors.stepsPerRev=200.0
 //200 steps x 16 microsteps

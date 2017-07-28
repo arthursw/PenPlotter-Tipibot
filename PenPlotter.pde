@@ -271,7 +271,7 @@ public void settings() {
 public void setup() {
     gpsCoordsFileWriter = createWriter("gpsCoords.txt");
 
-    ws = new WebsocketServer(this,8025,"/tipibot");
+    ws = new WebsocketServer(this,8026,"/tipibot");
     // wsc = new WebsocketClient(this, "ws://localhost:8000/socket.io/1/websocket/45340132079");
 
     String he = "FF8AC443";
@@ -985,6 +985,9 @@ public void setDrawingStatusDrawn(String pk) {
 //     }
 // }
 
+public void nextMsg() {
+    com.nextMsg();
+}
 public void draw() {
 
     int s = second();  // Values from 0 - 59
@@ -1276,7 +1279,12 @@ void setPlotFromJSON(JSONObject object) {
 
     JSONObject bounds = object.getJSONObject("bounds");
     float oX = homeX - pWidth / 2;                       // machineWidth/2;
-    float oY = -offY-homeY;
+    println("homeX, Y, offY, homeOffsetY:println(homeX);");
+    println(homeX);
+    println(homeY);
+    println(offY);
+    println(homeOffsetY);
+    float oY = 0;
     // float oY = paperHeight * 25.4 / 2.0;  // machineHeight/2;
     float bx = bounds.getFloat("x");
     float by = bounds.getFloat("y");
@@ -1307,19 +1315,19 @@ void setPlotFromJSON(JSONObject object) {
             }
             shape.addPath(path);
 
-            RPath paperBounds = new RPath(new RPoint(oX, oY));
-            paperBounds.addLineTo(new RPoint(oX+pWidth / scaleX, oY+0.0));
-            paperBounds.addLineTo(new RPoint(oX+pWidth / scaleX, oY+pHeight / scaleY));
-            paperBounds.addLineTo(new RPoint(oX+0.0, oY+pHeight / scaleY));
-            paperBounds.addLineTo(new RPoint(oX+0.0, oY+0.0));
-            shape.addPath(paperBounds);
+            // RPath paperBounds = new RPath(new RPoint(oX, oY));
+            // paperBounds.addLineTo(new RPoint(oX+pWidth / scaleX, oY+0.0));
+            // paperBounds.addLineTo(new RPoint(oX+pWidth / scaleX, oY+pHeight / scaleY));
+            // paperBounds.addLineTo(new RPoint(oX+0.0, oY+pHeight / scaleY));
+            // paperBounds.addLineTo(new RPoint(oX+0.0, oY+0.0));
+            // shape.addPath(paperBounds);
         }
 
         currentPlot.clear(); // or reset();  resets and calls plotDone() which reset the plot button :-)
 
         currentPlot = new SvgPlot();
-        ((SvgPlot)currentPlot).optimize(shape);
         ((SvgPlot)currentPlot).sh = shape;
+        ((SvgPlot)currentPlot).optimize(shape);
         currentPlot.loaded = true;
         currentPlot.showControls(); // not necessary but fancy
     }
