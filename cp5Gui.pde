@@ -44,6 +44,8 @@
     MyButton sendDataButton;
     MyButton setPenPositionButton;
     MyButton tabletModeButton;
+    MyButton commeUnDesseinModeButton;
+    MyButton fakeConnectionModeButton;
 
     MyButton stopButton;
     
@@ -214,6 +216,8 @@
         plotButton = addButton("plot", "Plot", leftMargin, posY+=ySpace);
         setPenPositionButton = addButton("setPenPosition", "Set pen position", leftMargin, posY+=ySpace);
         tabletModeButton = addButton("tabletMode", "Tablet mode", leftMargin, posY+=ySpace);
+        commeUnDesseinModeButton = addButton("commeUnDesseinMode", "Commun dessein mode", leftMargin, posY+=ySpace);
+        fakeConnectionModeButton = addButton("fakeConnectionMode", "Fake connection mode", leftMargin, posY+=ySpace);
         
         addButton("dorotate", "Rotate", leftMargin, posY+=ySpace);
         addButton("mirrorX","Flip X",leftMargin,posY+=ySpace);
@@ -482,6 +486,37 @@
         {
           b.setCaptionLabel("Tablet mode");
           tabletMode = false;
+        }
+    }
+
+    public void commeUnDesseinMode(ControlEvent theEvent)
+    {
+        Button b = (Button) theEvent.getController();
+        if(b.getCaptionLabel().getText().contains("Commun dessein mode"))
+        {
+          b.setCaptionLabel("Normal mode");
+          commeUnDesseinMode = true;
+          requestDrawingCommeUnDessein = true;
+        }
+        else if(b.getCaptionLabel().getText().contains("Normal mode"))
+        {
+          b.setCaptionLabel("Commun dessein mode");
+          commeUnDesseinMode = false;
+        }
+    }
+
+    public void fakeConnectionMode(ControlEvent theEvent)
+    {
+        Button b = (Button) theEvent.getController();
+        if(b.getCaptionLabel().getText().contains("Fake connection mode"))
+        {
+          b.setCaptionLabel("Normal mode");
+          fakeConnectionMode = true;
+        }
+        else if(b.getCaptionLabel().getText().contains("Normal mode"))
+        {
+          b.setCaptionLabel("Fake connection mode");
+          fakeConnectionMode = false;
         }
     }
     

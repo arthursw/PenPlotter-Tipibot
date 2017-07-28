@@ -428,7 +428,10 @@ class Message {
             oksend(msg);
         else
             queue(msg);
-        thread("nextMsg");
+        
+        if(fakeConnectionMode) {
+            thread("nextMsg");
+        }
     }
 
     public void sendBytes(byte[] bytes) {

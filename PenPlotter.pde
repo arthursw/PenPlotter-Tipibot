@@ -230,7 +230,11 @@ float maxTabletLength = 200.f;
 
 PrintWriter gpsCoordsFileWriter;
 
-boolean isDrawing = false;
+boolean commeUnDesseinMode = false;
+boolean fakeConnectionMode = false;
+boolean requestDrawingCommeUnDessein = true;
+String drawingPk = "";
+String secretTipibot = "";
 
 private void prepareExitHandler () {
 
@@ -240,7 +244,7 @@ private void prepareExitHandler () {
             println("SHUTDOWN HOOK");
         }
     }
-                                                   ));
+    ));
 }
 
 public void exit() {
@@ -268,11 +272,41 @@ public void settings() {
     size(1280, 800, JAVA2D);
 }
 
+public void loadSecret() {
+    BufferedReader reader = null;
+    boolean fileOpenned = false;
+
+    File secretTipibotFile = new File("/data/secret_tipibot.txt");
+    if(secretTipibotFile.exists()) {
+        reader = createReader(secretTipibotFile.getPath());
+        fileOpenned = true;
+    } else {
+        fileOpenned = false;
+        println("/data/secret_tipibot.txt does not exists.");
+    }
+    if(fileOpenned) {
+        String newLine = null;
+        do {
+          try {
+            newLine = reader.readLine();
+            if(newLine != null) {
+                secretTipibot += newLine;
+            }
+          } catch (IOException e) {
+            e.printStackTrace();
+            secretTipibot = null;
+          }
+        } while(newLine != null);
+    }
+}
+
 public void setup() {
     gpsCoordsFileWriter = createWriter("gpsCoords.txt");
 
     ws = new WebsocketServer(this,8026,"/tipibot");
     // wsc = new WebsocketClient(this, "ws://localhost:8000/socket.io/1/websocket/45340132079");
+    
+    loadSecret();
 
     String he = "FF8AC443";
 
@@ -942,13 +976,13 @@ public void requestNextDrawing() {
     // drawingRequestSent = true;
 }
 
-public void setDrawingStatusDrawn(String pk) {
+public void setDrawingStatusDrawn() {
     JSONObject params = new JSONObject();
     params.setString("type", "setDrawingStatusDrawn");
-    params.setString("pk", pk);
+    params.setString("pk", drawingPk);
+    params.setString("secret", secretTipibot);
     ws.sendMessage(params.toString());
 }
-
 
 // public void getNextValidatedDrawing(String result) {
     
@@ -988,20 +1022,18 @@ public void setDrawingStatusDrawn(String pk) {
 public void nextMsg() {
     com.nextMsg();
 }
+
 public void draw() {
 
-    int s = second();  // Values from 0 - 59
+    if(commeUnDesseinMode) {
+        int s = second();
     
-    if(s - seconds > 0 && !isDrawing) {
-        // data: JSON.stringify { function: 'savePath', args: args } 
-        requestNextDrawing();
-        // wsc.sendMessage("\"{\"name\":\"getNextValidatedDrawing\",\"args\":[]}\"");
-        // wsc.sendMessage("\"{\"name\":\"setDrawingStatusDrawn\",\"args\":[\"" + pk + "\"]}\"");
+        if(s - seconds > 0 && requestDrawingCommeUnDessein) {
+            requestNextDrawing();
+        }
 
-        // setDrawingStatusDrawn(request, pk, secret)
+        seconds = s;
     }
-
-    seconds = s;
 
     background(backgroundColor);
 
@@ -1279,11 +1311,6 @@ void setPlotFromJSON(JSONObject object) {
 
     JSONObject bounds = object.getJSONObject("bounds");
     float oX = homeX - pWidth / 2;                       // machineWidth/2;
-    println("homeX, Y, offY, homeOffsetY:println(homeX);");
-    println(homeX);
-    println(homeY);
-    println(offY);
-    println(homeOffsetY);
     float oY = 0;
     // float oY = paperHeight * 25.4 / 2.0;  // machineHeight/2;
     float bx = bounds.getFloat("x");
@@ -1292,6 +1319,7 @@ void setPlotFromJSON(JSONObject object) {
     float bh = bounds.getFloat("height");
     JSONArray paths = object.getJSONArray("paths");
 
+    drawingPk = object.getString("drawingPk");
 
     float scale = 1.0; // object.getFloat("scale")/100;
 
@@ -1330,6 +1358,7 @@ void setPlotFromJSON(JSONObject object) {
         ((SvgPlot)currentPlot).optimize(shape);
         currentPlot.loaded = true;
         currentPlot.showControls(); // not necessary but fancy
+        currentPlot.plot();
     }
 }
 
@@ -1439,9 +1468,11 @@ void webSocketServerEvent(String msg) {
     } else if (type.equals("setNextDrawing")) {
         
         // drawingRequestSent = false;
-        isDrawing = true;
+        requestDrawingCommeUnDessein = false;
         setPlotFromJSON(object);
 
+    } else if(type.equals("drawingStatusSetToDrawn")) {
+        requestDrawingCommeUnDessein = true;
     } else if (type.equals("pen")) {
         setPenPosition(object);
     } else if (type.equals("goTo") || type.equals("moveTo")) {

@@ -142,6 +142,9 @@
           com.sendCloseFile();
           com.sendPrintFile();
           plotDone();
+          if (commeUnDesseinMode) {
+            setDrawingStatusDrawn();
+          }
         }
 
         public void rotate() {
@@ -160,9 +163,6 @@
 
         public void draw() {
             //println("offX: " + offX + ", offY: " + offY);
-            
-            println("homeY: " + homeY);
-            println("offY: " + offY);
             
             lastX = -offX;
             lastY = -offY;
