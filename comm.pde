@@ -366,8 +366,6 @@ class Message {
         }
         bytes[2*nBytes] = byte(0);
         sendBytesPrefix(bytes, true);
-
-        // send("H~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
     public void initArduino() {
@@ -428,7 +426,7 @@ class Message {
             oksend(msg);
         else
             queue(msg);
-        
+
         if(fakeConnectionMode) {
             thread("nextMsg");
         }
