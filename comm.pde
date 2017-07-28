@@ -428,7 +428,8 @@ class Message {
             oksend(msg);
         else
             queue(msg);
-        thread("nextMsg");
+        // TO DEBUG WITHOUT MACHINE: 
+        // thread("nextMsg");
     }
 
     public void sendBytes(byte[] bytes) {

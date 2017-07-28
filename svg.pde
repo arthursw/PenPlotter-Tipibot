@@ -161,9 +161,6 @@
         public void draw() {
             //println("offX: " + offX + ", offY: " + offY);
             
-            println("homeY: " + homeY);
-            println("offY: " + offY);
-            
             lastX = -offX;
             lastY = -offY;
             strokeWeight(0.1f);
